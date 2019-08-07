@@ -114,7 +114,7 @@
         cursor: pointer;
     }
 
-    /* @media only screen and (min-width: 650px) {
+    @media only screen and (min-width: 650px) {
         .server {
             width: 30%;
         }
@@ -217,8 +217,3 @@
             margin-top: 4em; 
         }
     }
-
-
-
-
- */
