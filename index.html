@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Free Mentors</title>
+        <link rel="stylesheet" href="assets/css/home.css">
+    </head>
+    
+    <body>
+        <div class="container">
+            <header>
+                <img class="logo" src="assets/img/logo.svg" alt="FreeMentorsLogo">
+    
+                <nav>
+                    <a href="#" class="hide-desktop">
+                        <img src="assets/img/ham.svg" alt="toggle-menu" class="menu" id="menu">
+                    </a>
+    
+                    <ul class="show-desktop hide-mobile" id="nav">
+                        <li id="exit" class="exit-btn hide-desktop">
+                            <img src="assets/img/exit.svg" alt="exit menu">
+                        </li>
+                        <li><a href="/">home</a></li>
+                        <li><a href="#">about</a></li>
+                        <li class="btn-sign-in"><a href="./pages/sign-in.html">Sign In</a></li>
+                    </ul>
+                </nav>
+            </header>
+    
+            <section>
+                <img  class="server" src="assets/img/bigQuote.svg" alt="quote graphic">
+                <h1>Free Mentorship for young people</h1>
+                <p class="subhead">Find a professional mentor. Find an inspiring role model.</p>
+                <a href="#" class="cta">Get started</a>
+            </section>
+        </div>
+    
+        <script>
+            let menu = document.getElementById("menu");
+            let nav = document.getElementById('nav');
+            let exit = document.getElementById('exit');
+    
+            menu.addEventListener("click", (e) => {
+                nav.classList.toggle('hide-mobile');
+                e.preventDefault();
+            });
+    
+            exit.addEventListener("click", (e) => {
+                nav.classList.add('hide-mobile');
+                e.preventDefault();
+            });
+        </script>
+    
+    </body>    
+    </html>
