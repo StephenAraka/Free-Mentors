@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Free Mentors|sign-in</title>
+    <title>Free Mentors|sign-up</title>
     <link rel="stylesheet" href="../assets/css/auth.css">
     <!-- <link rel="stylesheet" href="../assets/css/home.css"> -->
 </head>
@@ -16,7 +16,15 @@
     </header>
 
     <div class="login-box">
-        <h1>Login</h1>
+        <h1>Register</h1>
+
+        <div class="textbox">
+            <input type="text" name="firstName" placeholder="First Name" value="">
+        </div>
+
+        <div class="textbox">
+            <input type="text" name="lastName" placeholder="Last Name" value="">
+        </div>
 
         <div class="textbox">
             <input type="email" name="email" placeholder="Email" value="">
@@ -26,9 +34,13 @@
             <input type="password" name="password" placeholder="Password" value="">
         </div>
 
-        <input type="button" value="Sign In" class="btn-login">
+        <div class="textbox">
+            <input type="password" name="passwordConfirm" placeholder="Confirm Password" value="">
+        </div>
 
-        <p>Not yet a member? <a class="auth-redirect" href="./sign-up.html">Sign up here</a></p>
+        <input type="button" value="Sign Up" class="btn-login">
+
+        <p>Already a member? <a class="auth-redirect" href="./sign-in.html">Sign in here</a></p>
     </div>
 </body>
 
