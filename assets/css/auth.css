@@ -66,6 +66,16 @@ a {
     cursor: pointer;
 }
 
+.auth-redirect {
+    text-decoration: none;
+    color: blue;
+    margin-left: .5em;
+}
+
+.auth-redirect:hover {
+    color: #4caf50;
+}
+
 @media only screen and (min-width: 650px) {
     .logo {
         width: 5em;
