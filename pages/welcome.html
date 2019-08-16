@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/assets/css/modal.css">
+    <link rel="stylesheet" href="/assets/css/welcome.css">
+    <title>Welcome to Free Mentors</title>
+</head>
+<body>
+    <a href="#modal" class="modal-open">Click</a>
+
+    <div class="modal" id="modal">
+        <div class="modal__content">
+            <a href="#" class="modal-close">&times;</a>
+            <h2 class="modal__heading">Steve</h2>
+            <div class="tabContainer">
+                <div class="buttonContainer">
+                    <button onclick="showPanel(0, '#f44336')">Tab 1</button>
+                    <button onclick="showPanel(1, '#4caf50')">Tab 2</button>
+                    <button onclick="showPanel(2, '#2196f3')">Tab 3</button>
+                    <button onclick="showPanel(3, '#ff5722')">Tab 4</button>
+                </div>
+                <div class="tabPanel">Tab 1: Content</div>
+                <div class="tabPanel">Tab 2: Content</div>
+                <div class="tabPanel">Tab 3: Content</div>
+                <div class="tabPanel">Tab 4: Content</div>
+            </div> 
+        </div>
+    </div>
+    <script src="/js/welcome.js"></script>
+</body>
+</html>
