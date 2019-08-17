@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,27 +9,31 @@
     <link rel="stylesheet" href="/assets/css/welcome.css">
     <title>Welcome to Free Mentors</title>
 </head>
-<body>
-    <a href="#modal" class="modal-open">Click</a>
 
+<body>
     <div class="modal" id="modal">
         <div class="modal__content">
-            <a href="#" class="modal-close">&times;</a>
-            <h2 class="modal__heading">Steve</h2>
+            <!-- <a href="#" class="modal-close">&times;</a> -->
+            <h2 class="modal__heading">Sign up as a mentor or user:</h2>
             <div class="tabContainer">
                 <div class="buttonContainer">
-                    <button onclick="showPanel(0, '#f44336')">Tab 1</button>
-                    <button onclick="showPanel(1, '#4caf50')">Tab 2</button>
-                    <button onclick="showPanel(2, '#2196f3')">Tab 3</button>
-                    <button onclick="showPanel(3, '#ff5722')">Tab 4</button>
+                    <button onclick="showPanel(0)">Mentor</button>
+                    <button onclick="showPanel(1)">User</button>
                 </div>
-                <div class="tabPanel">Tab 1: Content</div>
-                <div class="tabPanel">Tab 2: Content</div>
-                <div class="tabPanel">Tab 3: Content</div>
-                <div class="tabPanel">Tab 4: Content</div>
-            </div> 
+                <div class="tabPanel">
+                    <p class="modal__paragraph">As a mentor, you will be able to accept/reject mentorship requests from
+                        users. If request is accepted, the mentorship session will be sheduled.</p>
+                    <a href="/pages/view-mentors.html" class="btn-login">Confirm</a>
+                </div>
+                <div class="tabPanel">
+                    <p class="modal__paragraph">As a user, you will be able to request mentors for mentorship sessions. If request is accepted, the mentorship session will be sheduled.</p>
+                    <!-- <input type="button" value="Confirm" class="btn-login"> -->
+                    <a href="/pages/mentor.html" class="btn-login">Confirm</a>
+                </div>
+            </div>
         </div>
     </div>
     <script src="/js/welcome.js"></script>
 </body>
+
 </html>
