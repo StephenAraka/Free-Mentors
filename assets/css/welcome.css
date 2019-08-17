@@ -86,14 +86,6 @@ a:link, a:visited {
     text-decoration: none;
 }
 
-/* .modal-close {
-    color: #363636;
-    font-size: 2em;
-    position: absolute;
-    top: .5em;
-    right: 1em;
-} */
-
 .modal__heading {
     color: dodgerblue;
     margin-bottom: 1em;
