@@ -55,3 +55,31 @@ body {
     position: fixed;
     bottom: 50%;
 }
+
+img {
+    width: 100%;
+}
+
+.card-container {
+    margin: auto;
+    margin-top: 4%;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);
+    transition: 0.4s;
+    width: 300px;
+    background: #fff;
+    text-align: center;
+    font-size: .5rem;
+    float: left;
+    margin: 4%;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+}
+
+.caption-container {
+    padding: 2px 16px;
+}
