@@ -1,12 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600');
-
-* {
-    font-family: 'Montserrat', Tahoma, sans-serif;
-}
-
 body {
     margin: 0;
     transition: background-color 0.5s;
+    font-family: 'Montserrat', Tahoma, sans-serif;
 }
 
 header {
@@ -17,19 +12,19 @@ header {
     color: lavender;
 }
 
-.btn-sign-out {
-    background-color: inherit;
-    text-align: right;
-    padding: 1em 2em;   
-    color: #00ec00cc;
-    text-decoration: none;
-    font-weight: bolder;
-}
-
 .logo {
     width: 3em;
     height: 3em;
     filter: invert(100%);
+}
+
+.btn-sign-out {
+    background-color: inherit;
+    text-align: right;
+    padding: 1em 2em;
+    color: #00ec00cc;
+    text-decoration: none;
+    font-weight: bolder;
 }
 
 .side-menu {
@@ -80,32 +75,45 @@ header {
     bottom: 30%;
 }
 
-.caption button.btn-request-session {
-    /* background-color: #00cc80; */
-    background-color: #0070cc;
-    width: 20%;
-    display: block;
-    color: #fff;
-    padding: .5em;
-    font-size: 1rem;
-    margin: 7% 3%;
+#users {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#users td, #users th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#users tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#users tr:hover {
+    background-color: #ddd;
+}
+
+#users th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+#users tr>td>button.accept {
+    background-color: #00ec00cc;
+    color: white;
+    padding: 1em 2em;
+    font-weight: bold;
     cursor: pointer;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);
-    transition: 0.4s;
 }
 
-.caption button.btn-request-session:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
-}
-
-.content img {
-    float: left;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);
-    transition: 0.4s;
-}
-
-.content img:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+#users tr>td>button.decline {
+    background-color: #ec001fcc;
+    color: white;
+    padding: 1em 2em;
+    font-weight: bold;
+    cursor: pointer;
 }
