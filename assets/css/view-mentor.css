@@ -80,6 +80,38 @@ header {
     bottom: 30%;
 }
 
+.caption button.btn-request-session {
+    /* background-color: #00cc80; */
+    background-color: #0070cc;
+    width: 20%;
+    display: block;
+    color: #fff;
+    padding: .5em;
+    font-size: 1rem;
+    margin: 7% 3%;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);
+    transition: 0.4s;
+}
+
+.caption button.btn-request-session:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+}
+
+.content img {
+    float: left;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);
+    transition: 0.4s;
+}
+
+.content img:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+}
+
+/*  */
+/*  */
 .card img {
     width: 100%;
     height: 300px;
@@ -112,16 +144,14 @@ header {
     font-size: .8rem;
 }
 
-.caption-container a.btn-view-info {
+.caption-container .btn-view-info {
     background-color: #00cc80;
     width: 50%;
     display: block;
     color: #fff;
-    padding: .7em;
+    padding: .5em;
     font-size: .8rem;
     margin: 3% auto 7%;
+    cursor: pointer;
     border-radius: 10px;
-    text-decoration: none;
-    text-align: center;
-    font-weight: bold;
 }

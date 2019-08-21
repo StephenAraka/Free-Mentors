@@ -12,8 +12,8 @@ const closeMenu = () => {
     document.body.style.backgroundColor = '#fff';
 }
 
-const viewMentorBtn = document.querySelector(".btn-view-info");
+const requestSessionBtn = document.querySelector(".btn-request-session");
 
-viewMentorBtn.addEventListener("click", () => {
-    location.href = "./view-mentor.html";
+requestSessionBtn.addEventListener("click", () => {
+    alert("Holla Holla Holla!");
 });
