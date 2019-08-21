@@ -5,7 +5,31 @@
 }
 
 body {
+    margin: 0;
     transition: background-color 0.5s;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background: black;
+    padding: .5em;
+    color: lavender;
+}
+
+.btn-sign-out {
+    background-color: inherit;
+    text-align: right;
+    padding: 1em 2em;   
+    color: #00ec00cc;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+.logo {
+    width: 3em;
+    height: 3em;
+    /* TODO: invert color */
 }
 
 .side-menu {
@@ -23,7 +47,7 @@ body {
 .side-menu ul {
     list-style: none;
     padding: 0;
-    margin-top: 45px;
+    margin-top: 50%;
     margin-left: 45px;
 }
 
@@ -53,11 +77,14 @@ body {
 .expand-arrow {
     transition: 0.5s;
     position: fixed;
-    bottom: 50%;
+    bottom: 30%;
 }
 
-img {
+.card img {
     width: 100%;
+    height: 300px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
 }
 
 .card-container {
@@ -68,12 +95,11 @@ img {
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);
     transition: 0.4s;
-    width: 300px;
+    width: 25%;
     background: #fff;
-    text-align: center;
-    font-size: .5rem;
     float: left;
     margin: 4%;
+    border-radius: 20px;
 }
 
 .card:hover {
@@ -82,4 +108,18 @@ img {
 
 .caption-container {
     padding: 2px 16px;
+    text-align: left;
+    font-size: .8rem;
+}
+
+.caption-container .btn-view-info {
+    background-color: #00cc80;
+    width: 50%;
+    display: block;
+    color: #fff;
+    padding: .5em;
+    font-size: .8rem;
+    margin: 3% auto 7%;
+    cursor: pointer;
+    border-radius: 10px;
 }
