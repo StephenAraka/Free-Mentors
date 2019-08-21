@@ -29,7 +29,7 @@ header {
 .logo {
     width: 3em;
     height: 3em;
-    /* TODO: invert color */
+    filter: invert(100%);
 }
 
 .side-menu {
