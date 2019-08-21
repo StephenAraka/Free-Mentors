@@ -11,3 +11,9 @@ const closeMenu = () => {
     document.getElementById("expandArrow").style.marginLeft = '0';
     document.body.style.backgroundColor = '#fff';
 }
+
+const viewMentorBtn = document.querySelector(".btn-view-info");
+
+viewMentorBtn.addEventListener("click", () => {
+    location.href = "./view-mentor.html";
+});
