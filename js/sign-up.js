@@ -1,5 +1,6 @@
-const sign_in_btn = document.querySelector(".btn-login");
+const signInBtn = document.querySelector('.btn-login');
 
-sign_in_btn.addEventListener("click", () => {
-    location.href = "./welcome.html";
+signInBtn.addEventListener('click', () => {
+    // eslint-disable-next-line no-restricted-globals
+    location.href = './welcome.html';
 });
