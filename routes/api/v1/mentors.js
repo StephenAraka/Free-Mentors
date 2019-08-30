@@ -15,9 +15,9 @@ router.get('/:id', (req, res) => {
     const found = mentors.some((mentor) => mentor.mentorId === parseInt(req.params.id, 10));
 
     if (found) {
-        res.status(200).json(mentors.filter((mentor) => mentor.mentorId === parseInt(req.params.id, 10)));
+        res.json({ status: 200, message: 'Mentor found', mentor: mentors.filter((mentor) => mentor.mentorId === parseInt(req.params.id, 10)) });
     } else {
-        res.status(400).json({ msg: `Not found mentor with the id of ${req.params.id}` });
+        res.json({ status: 400, message: `Not found mentor with the id of ${req.params.id}` });
     }
 });
 
@@ -37,10 +37,10 @@ router.post('/', (req, res) => {
     };
 
     if (!newMentor.firstName || !newMentor.lastName || !newMentor.email) {
-        res.status(400).json({ msg: 'Please include names and email' });
+        res.json({ status: 401, message: 'Please include names and email' });
     } else {
         mentors.push(newMentor);
-        res.json(mentors);
+        res.json({ status: 201, message: 'User created', mentors });
         // res.redirect('/');
     }
 });
@@ -61,11 +61,11 @@ router.put('/:id', (req, res) => {
                 mentor.occupation = updateMentor.occupation ? updateMentor.occupation : mentor.occupation;
                 mentor.expertise = updateMentor.expertise ? updateMentor.expertise : mentor.expertise;
 
-                res.json({ msg: 'mentor updated', mentor });
+                res.json({ status: 200, message: 'mentor updated', mentor });
             }
         });
     } else {
-        res.status(400).json({ msg: `Not found mentor with the id of ${req.params.id}` });
+        res.json({ status: 404, message: `Not found mentor with the id of ${req.params.id}` });
     }
 });
 
@@ -74,9 +74,9 @@ router.delete('/:id', (req, res) => {
     const found = mentors.some((mentor) => mentor.mentorId === parseInt(req.params.id, 10));
 
     if (found) {
-        res.json({ msg: 'mentor deleted', mentors: mentors.filter((mentor) => mentor.mentorId !== parseInt(req.params.id, 10)) });
+        res.json({ status: 200, message: 'mentor deleted', mentors: mentors.filter((mentor) => mentor.mentorId !== parseInt(req.params.id, 10)) });
     } else {
-        res.status(400).json({ msg: `Not found mentor with the id of ${req.params.id}` });
+        res.json({ status: 404, message: `Not found mentor with the id of ${req.params.id}` });
     }
 });
 

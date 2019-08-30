@@ -15,9 +15,9 @@ router.get('/:id', (req, res) => {
     const found = users.some((user) => user.userId === parseInt(req.params.id, 10));
 
     if (found) {
-        res.status(200).json(users.filter((user) => user.userId === parseInt(req.params.id, 10)));
+        res.json({ status: 200, message: 'User found', user: users.filter((user) => user.userId === parseInt(req.params.id, 10)) });
     } else {
-        res.status(400).json({ msg: `Not found user with the id of ${req.params.id}` });
+        res.json({ status: 400, message: `Not found user with the id of ${req.params.id}` });
     }
 });
 
@@ -37,10 +37,10 @@ router.post('/', (req, res) => {
     };
 
     if (!newUser.firstName || !newUser.lastName || !newUser.email) {
-        res.status(400).json({ msg: 'Please include names and email' });
+        res.json({ status: 400, message: 'Please include names and email' });
     } else {
         users.push(newUser);
-        res.json(users);
+        res.json({ status: 201, message: 'User created', users });
         // res.redirect('/');
     }
 });
@@ -61,11 +61,11 @@ router.put('/:id', (req, res) => {
                 user.occupation = updateUser.occupation ? updateUser.occupation : user.occupation;
                 user.expertise = updateUser.expertise ? updateUser.expertise : user.expertise;
 
-                res.json({ msg: 'user updated', user });
+                res.json({ status: 200, message: 'user updated', user });
             }
         });
     } else {
-        res.status(400).json({ msg: `Not found user with the id of ${req.params.id}` });
+        res.json({ status: 404, message: `Not found user with the id of ${req.params.id}` });
     }
 });
 
@@ -74,9 +74,9 @@ router.delete('/:id', (req, res) => {
     const found = users.some((user) => user.userId === parseInt(req.params.id, 10));
 
     if (found) {
-        res.json({ msg: 'user deleted', users: users.filter((user) => user.userId !== parseInt(req.params.id, 10)) });
+        res.json({ status: 200, message: 'user deleted', users: users.filter((user) => user.userId !== parseInt(req.params.id, 10)) });
     } else {
-        res.status(400).json({ msg: `Not found user with the id of ${req.params.id}` });
+        res.json({ status: 404, message: `Not found user with the id of ${req.params.id}` });
     }
 });
 
