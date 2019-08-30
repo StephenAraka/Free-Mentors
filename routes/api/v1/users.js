@@ -45,5 +45,25 @@ router.post('/', (req, res) => {
     }
 });
 
+// Update user
+router.put('/:id', (req, res) => {
+    const found = users.some((user) => user.userId === parseInt(req.params.id, 10));
+
+    if (found) {
+        const updateUser = req.body;
+        users.forEach((user) => {
+            if (user.userId === parseInt(req.params.id, 10)) {
+                user.firstName = updateUser.firstName ? updateUser.firstName : user.firstName;
+                user.lastName = updateUser.lastName ? updateUser.lastName : user.lastName;
+                user.email = updateUser.email ? updateUser.email : user.email;
+
+                res.json({ msg: 'user updated', user });
+            }
+        });
+    } else {
+        res.status(400).json({ msg: `Not found user with the id of ${req.params.id}` });
+    }
+});
+
 
 module.exports = router;
