@@ -6,7 +6,12 @@ const path = require('path');
 const PORT = process.env.PORT || 3000;
 const app = express();
 
+// Set static folder middleware
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Body parser middleware to help with postman
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 // Client Routes
 app.get('/', (req, res) => {
