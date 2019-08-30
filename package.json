@@ -1,0 +1,42 @@
+{
+  "name": "free-mentors",
+  "version": "1.0.0",
+  "description": "Free Mentors is a social initiative where accomplished professionals become role models to young people to provide free mentorship sessions.",
+  "main": "index.js",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "debug": "^4.1.1",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.2.2",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2"
+  },
+  "nodemonConfig": {
+    "restartable": "rs",
+    "ignore": ["node_modules/**/node_modules"],
+    "delay": "1000",
+    "env": {
+      "NODE_ENV": "development",
+      "PORT": 4000
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StephenAraka/Free-Mentors.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StephenAraka/Free-Mentors/issues"
+  },
+  "homepage": "https://github.com/StephenAraka/Free-Mentors#readme"
+}
