@@ -3,6 +3,7 @@ const uuid = require('uuid');
 
 const router = express.Router();
 const users = require('../../../src/Users');
+const mentors = require('../../../src/Mentors');
 
 // get all users
 router.get('/', (req, res) => {
@@ -75,6 +76,34 @@ router.delete('/:id', (req, res) => {
 
     if (found) {
         res.json({ status: 200, message: 'user deleted', data: users.filter((user) => user.userId !== parseInt(req.params.id, 10)) });
+    } else {
+        res.json({ status: 404, message: `Not found user with the id of ${req.params.id}` });
+    }
+});
+
+// Update a user
+router.patch('/:id', (req, res) => {
+    const found = users.some((user) => user.userId === parseInt(req.params.id, 10));
+    if (found) {
+        users.forEach((user) => {
+            if (user.userId === parseInt(req.params.id, 10)) {
+                const newMentor = {
+                    id: uuid.v4(),
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    email: user.email,
+                    password: 'secret',
+                    address: user.address,
+                    bio: user.bio,
+                    occupation: user.occupation,
+                    expertise: user.expertise,
+                    role: 'mentor'
+                };
+                mentors.push(newMentor);
+                const usersUpdate = users.filter((user) => user.userId !== parseInt(req.params.id, 10));
+                res.json({ status: 200, message: 'User account changed to mentor', data: [{ mentors }, { users: usersUpdate }] });
+            }
+        });
     } else {
         res.json({ status: 404, message: `Not found user with the id of ${req.params.id}` });
     }
