@@ -15,9 +15,9 @@ router.get('/:id', (req, res) => {
     const found = users.some((user) => user.userId === parseInt(req.params.id, 10));
 
     if (found) {
-        res.status(200).json(users.filter((user) => user.userId === parseInt(req.params.id, 10)));
+        res.json({ status: 200, message: 'User found', data: users.filter((user) => user.userId === parseInt(req.params.id, 10)) });
     } else {
-        res.status(400).json({ msg: `Not found user with the id of ${req.params.id}` });
+        res.json({ status: 400, message: `Not found user with the id of ${req.params.id}` });
     }
 });
 
@@ -37,13 +37,47 @@ router.post('/', (req, res) => {
     };
 
     if (!newUser.firstName || !newUser.lastName || !newUser.email) {
-        res.status(400).json({ msg: 'Please include names and email' });
+        res.json({ status: 400, message: 'Please include names and email' });
     } else {
         users.push(newUser);
-        res.json(users);
+        res.json({ status: 201, message: 'User created', data: users });
         // res.redirect('/');
     }
 });
 
+// Update a user
+router.put('/:id', (req, res) => {
+    const found = users.some((user) => user.userId === parseInt(req.params.id, 10));
+
+    if (found) {
+        const updateUser = req.body;
+        users.forEach((user) => {
+            if (user.userId === parseInt(req.params.id, 10)) {
+                user.firstName = updateUser.firstName ? updateUser.firstName : user.firstName;
+                user.lastName = updateUser.lastName ? updateUser.lastName : user.lastName;
+                user.email = updateUser.email ? updateUser.email : user.email;
+                user.address = updateUser.address ? updateUser.address : user.address;
+                user.bio = updateUser.bio ? updateUser.bio : user.bio;
+                user.occupation = updateUser.occupation ? updateUser.occupation : user.occupation;
+                user.expertise = updateUser.expertise ? updateUser.expertise : user.expertise;
+
+                res.json({ status: 200, message: 'user updated', data: user });
+            }
+        });
+    } else {
+        res.json({ status: 404, message: `Not found user with the id of ${req.params.id}` });
+    }
+});
+
+// delete a user
+router.delete('/:id', (req, res) => {
+    const found = users.some((user) => user.userId === parseInt(req.params.id, 10));
+
+    if (found) {
+        res.json({ status: 200, message: 'user deleted', data: users.filter((user) => user.userId !== parseInt(req.params.id, 10)) });
+    } else {
+        res.json({ status: 404, message: `Not found user with the id of ${req.params.id}` });
+    }
+});
 
 module.exports = router;
