@@ -6,9 +6,14 @@ const path = require('path');
 const PORT = process.env.PORT || 3000;
 const app = express();
 
+// Set static folder middleware
 app.use(express.static(path.join(__dirname, 'public')));
 
-// GET Routes
+// Body parser middleware to help with postman
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+// Client Routes
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views/index.html'));
 });
@@ -40,6 +45,12 @@ app.get('/view-all-users', (req, res) => {
 app.get('/view-requests', (req, res) => {
     res.sendFile(path.join(__dirname, 'views/view-requests.html'));
 });
+
+// Users API route
+app.use('/api/v1/users', require('./routes/api/v1/users'));
+
+// Mentors API route
+app.use('/api/v1/mentors', require('./routes/api/v1/mentors'));
 
 app.listen(PORT, () => {
     debug(`listening on port ${chalk.blue(PORT)}`);

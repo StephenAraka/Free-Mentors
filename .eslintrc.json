@@ -22,6 +22,8 @@
         "no-console": "off",
         "semi": ["error", "always"],
         "array-bracket-spacing": ["warn", "never"],
-        "camelcase": "warn"
+        "camelcase": "warn",
+        "comma-dangle": 0,
+        "max-len": 1
     }
 }
