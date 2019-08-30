@@ -69,5 +69,15 @@ router.put('/:id', (req, res) => {
     }
 });
 
+// delete a user
+router.delete('/:id', (req, res) => {
+    const found = users.some((user) => user.userId === parseInt(req.params.id, 10));
+
+    if (found) {
+        res.json({ msg: 'user deleted', users: users.filter((user) => user.userId !== parseInt(req.params.id, 10)) });
+    } else {
+        res.status(400).json({ msg: `Not found user with the id of ${req.params.id}` });
+    }
+});
 
 module.exports = router;
