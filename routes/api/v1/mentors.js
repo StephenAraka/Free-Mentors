@@ -13,7 +13,6 @@ router.get('/', (req, res) => {
 // get single mentor
 router.get('/:id', (req, res) => {
     const found = mentors.some((mentor) => mentor.mentorId === parseInt(req.params.id, 10));
-
     if (found) {
         res.status(200).json(mentors.filter((mentor) => mentor.mentorId === parseInt(req.params.id, 10)));
     } else {
