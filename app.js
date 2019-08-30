@@ -43,10 +43,8 @@ app.get('/view-requests', (req, res) => {
     res.sendFile(path.join(__dirname, 'views/view-requests.html'));
 });
 
-// API routes
-app.get('/api/v1/users', (req, res) => {
-    res.json(users);
-});
+// Users API routes
+app.use('/api/v1/users', require('./routes/api/v1/users'));
 
 app.get('/api/v1/mentors', (req, res) => {
     res.json(mentors);
