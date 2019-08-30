@@ -3,7 +3,7 @@ const chalk = require('chalk');
 const debug = require('debug')('app');
 const path = require('path');
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/sign-in', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', '/sign-in.html'));
+    res.sendFile(path.join(__dirname, 'views/sign-in.html'));
 });
 
 app.get('/sign-up', (req, res) => {
