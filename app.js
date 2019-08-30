@@ -56,6 +56,9 @@ app.use('/api/v1/mentors', require('./routes/api/v1/mentors'));
 app.use('/api/v1/auth/signup', require('./routes/api/v1/auth/signup'));
 app.use('/api/v1/auth/signin', require('./routes/api/v1/auth/signin'));
 
+// Sessions API route
+app.use('/api/v1/sessions', require('./routes/api/v1/sessions/session'));
+
 app.listen(PORT, () => {
     debug(`listening on port ${chalk.blue(PORT)}`);
 });
