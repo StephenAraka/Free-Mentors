@@ -6,7 +6,7 @@ const mentors = require('../../../src/Mentors');
 
 // get all mentors
 router.get('/', (req, res) => {
-    res.json(mentors);
+    res.json({ status: 200, data: [mentors] });
 });
 
 
