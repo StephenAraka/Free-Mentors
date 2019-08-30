@@ -45,7 +45,7 @@ router.post('/', (req, res) => {
     }
 });
 
-// Update user
+// Update a user
 router.put('/:id', (req, res) => {
     const found = users.some((user) => user.userId === parseInt(req.params.id, 10));
 
@@ -56,6 +56,10 @@ router.put('/:id', (req, res) => {
                 user.firstName = updateUser.firstName ? updateUser.firstName : user.firstName;
                 user.lastName = updateUser.lastName ? updateUser.lastName : user.lastName;
                 user.email = updateUser.email ? updateUser.email : user.email;
+                user.address = updateUser.address ? updateUser.address : user.address;
+                user.bio = updateUser.bio ? updateUser.bio : user.bio;
+                user.occupation = updateUser.occupation ? updateUser.occupation : user.occupation;
+                user.expertise = updateUser.expertise ? updateUser.expertise : user.expertise;
 
                 res.json({ msg: 'user updated', user });
             }
