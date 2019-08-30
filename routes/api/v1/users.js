@@ -15,7 +15,7 @@ router.get('/:id', (req, res) => {
     const found = users.some((user) => user.userId === parseInt(req.params.id, 10));
 
     if (found) {
-        res.json({ status: 200, message: 'User found', user: users.filter((user) => user.userId === parseInt(req.params.id, 10)) });
+        res.json({ status: 200, message: 'User found', data: users.filter((user) => user.userId === parseInt(req.params.id, 10)) });
     } else {
         res.json({ status: 400, message: `Not found user with the id of ${req.params.id}` });
     }
@@ -40,7 +40,7 @@ router.post('/', (req, res) => {
         res.json({ status: 400, message: 'Please include names and email' });
     } else {
         users.push(newUser);
-        res.json({ status: 201, message: 'User created', users });
+        res.json({ status: 201, message: 'User created', data: users });
         // res.redirect('/');
     }
 });
@@ -61,7 +61,7 @@ router.put('/:id', (req, res) => {
                 user.occupation = updateUser.occupation ? updateUser.occupation : user.occupation;
                 user.expertise = updateUser.expertise ? updateUser.expertise : user.expertise;
 
-                res.json({ status: 200, message: 'user updated', user });
+                res.json({ status: 200, message: 'user updated', data: user });
             }
         });
     } else {
@@ -74,7 +74,7 @@ router.delete('/:id', (req, res) => {
     const found = users.some((user) => user.userId === parseInt(req.params.id, 10));
 
     if (found) {
-        res.json({ status: 200, message: 'user deleted', users: users.filter((user) => user.userId !== parseInt(req.params.id, 10)) });
+        res.json({ status: 200, message: 'user deleted', data: users.filter((user) => user.userId !== parseInt(req.params.id, 10)) });
     } else {
         res.json({ status: 404, message: `Not found user with the id of ${req.params.id}` });
     }
