@@ -18,4 +18,4 @@ This is the development build of Free Mentors
  `npm install`
 
 ## Start project
-`npm start` - The server will be started and the app can be accessed on http://localhost:`PORT`
+`npm start` - The server will be started and the app can be accessed on your localhost
