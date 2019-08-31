@@ -6,7 +6,9 @@ This is the development build of Free Mentors
 
 [![Coverage Status](https://coveralls.io/repos/github/StephenAraka/Free-Mentors/badge.svg?branch=master)](https://coveralls.io/github/StephenAraka/Free-Mentors?branch=master)
 
-[![Build Status](https://travis-ci.org/StephenAraka/Free-Mentors.svg?branch=master)](https://travis-ci.org/StephenAraka/Free-Mentors) [![Coverage Status](https://coveralls.io/repos/github/StephenAraka/Free-Mentors/badge.svg?branch=master)](https://coveralls.io/github/StephenAraka/Free-Mentors?branch=master)
+[![Build Status](https://travis-ci.org/StephenAraka/Free-Mentors.svg?branch=master)](https://travis-ci.org/StephenAraka/Free-Mentors)
+
+[View UI Demo](https://stephenaraka.github.io/Free-Mentors)
 
 ## Setup project
  - git clone `https://github.com/StephenAraka/Free-Mentors.git`
