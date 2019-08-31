@@ -2,4 +2,18 @@
 
 Free Mentors is a social initiative where accomplished professionals become role models to young people to provide free mentorship sessions.
 
-Issa Andela ting dis!
+This is the development build of Free Mentors
+
+[![Coverage Status](https://coveralls.io/repos/github/StephenAraka/Free-Mentors/badge.svg?branch=master)](https://coveralls.io/github/StephenAraka/Free-Mentors?branch=master)
+
+[![Build Status](https://travis-ci.org/StephenAraka/Free-Mentors.svg?branch=master)](https://travis-ci.org/StephenAraka/Free-Mentors) [![Coverage Status](https://coveralls.io/repos/github/StephenAraka/Free-Mentors/badge.svg?branch=master)](https://coveralls.io/github/StephenAraka/Free-Mentors?branch=master)
+
+## Setup project
+ - git clone `https://github.com/StephenAraka/Free-Mentors.git`
+ - cd Free-Mentors
+
+## Install dependencies
+ `npm install`
+
+## Start project
+`npm start` - The server will be started and the app can be accessed on http://localhost:`PORT`
