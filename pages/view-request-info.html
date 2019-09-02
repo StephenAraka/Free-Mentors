@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="../js/mentor.js"></script>
+    <link rel="stylesheet" href="../assets/css/view-mentor.css">
+    <title>View Specific Mentor</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <img class="logo" src="../assets/img/logo.svg" alt="FreeMentorsLogo">
+            <h1>Free Mentors</h1>
+            <a href="./sign-in.html" class="btn-sign-out">Sign Out</a>
+        </header>
+
+        <div id="side-menu" class="side-menu" onmouseleave="closeMenu()">
+            <ul>
+                <!-- <li><img class="logo" src="../assets/img/logo.svg" alt="FreeMentorsLogo"></li> -->
+                <li><a class="active" href="#">View Mentors</a></li>
+                <li><a href="#">Session Requests</a></li>
+                <li><a href="#">Session History</a></li>
+            </ul>
+        </div>
+
+        <img src="../assets/img/arrow.svg" alt="menu" class="expand-arrow" id="expandArrow" onmouseover="openMenu()" />
+
+        <div id="main" class="main">
+            <div class="title">
+                <h1>Sofia Helen</h1>
+            </div>
+
+            <div class="content">
+                <img src="../assets/img/user/u22.jpg" alt="zuckerberg">
+
+                <div class="caption">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, architecto aut! Nam ad eum,
+                        ducimus repudiandae ea facere similique provident incidunt eveniet nemo modi, ipsam corrupti
+                        ipsum abeatae blanditiis.</p>
+                    <div class="buttons-div">
+                        <button class="btn-request-accept">Accept</button>
+                        <button class="btn-request-decline">Decline</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
