@@ -15,5 +15,5 @@ const closeMenu = () => {
 const requestSessionBtn = document.querySelector(".btn-request-session");
 
 requestSessionBtn.addEventListener("click", () => {
-    alert("Holla Holla Holla!");
+    console.log("clicked!")
 });
