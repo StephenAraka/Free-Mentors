@@ -146,9 +146,9 @@ div.buttons-div {
     -webkit-column-gap: 5%  ;
     -moz-column-gap: 5%;
     column-gap: 5%;
-    -webkit-columns: 3;
-    -moz-columns: 3;
-    columns: 3;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    columns: 2;
 } 
 
 button.btn-promote {
