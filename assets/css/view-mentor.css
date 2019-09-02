@@ -150,3 +150,16 @@ div.buttons-div {
     -moz-columns: 3;
     columns: 3;
 } 
+
+button.btn-promote {
+    background-color: #0070cc;
+    display: inline;
+    color: #fff;
+    padding: .5em;
+    font-size: 1rem;
+    margin: 7% 3%;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+    transition: 0.4s;
+}
