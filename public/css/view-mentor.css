@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,600');
-
 * {
     font-family: 'Montserrat', Tahoma, sans-serif;
 }
@@ -20,7 +19,7 @@ header {
 .btn-sign-out {
     background-color: inherit;
     text-align: right;
-    padding: 1em 2em;   
+    padding: 1em 2em;
     color: #00ec00cc;
     text-decoration: none;
     font-weight: bolder;
@@ -69,9 +68,11 @@ header {
 }
 
 .main {
+    width: 70%;
+    margin: auto;
     transition: 0.5s;
     padding-top: 20px;
-    padding-left: 50px;
+    padding-left: 20px;
 }
 
 .expand-arrow {
@@ -81,9 +82,8 @@ header {
 }
 
 .caption button.btn-request-session {
-    /* background-color: #00cc80; */
     background-color: #0070cc;
-    width: 20%;
+    width: 50%;
     display: block;
     color: #fff;
     padding: .5em;
@@ -91,21 +91,62 @@ header {
     margin: 7% 3%;
     cursor: pointer;
     border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
     transition: 0.4s;
 }
 
-.caption button.btn-request-session:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+.caption button.btn-request-accept {
+    background-color: #0cd105;
+    display: inline;
+    color: #fff;
+    padding: .5em;
+    font-size: 1rem;
+    margin: 7% 3%;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+    transition: 0.4s;
+}
+
+.caption button.btn-request-decline {
+    background-color: #d10505;
+    display: inline;
+    color: #fff;
+    padding: .5em;
+    font-size: 1rem;
+    margin: 7% 3%;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+    transition: 0.4s;
+}
+
+.caption button:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
 }
 
 .content img {
-    float: left;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);
+    border-radius: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
     transition: 0.4s;
+    /* width: 50%; */
 }
 
 .content img:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+}
+
+div.buttons-div {
+    columns: 2;
+}
+
+.content {
+    /* webkit = Chrome, Opera, Edge  */
+    /* Moz = Mozilla */
+    -webkit-column-gap: 10px;
+    -moz-column-gap: 20px;
+    column-gap: 20px;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    columns: 2;
 }
