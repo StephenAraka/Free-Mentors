@@ -7,7 +7,7 @@ const openMenu = () => {
 
 const closeMenu = () => {
     document.getElementById("side-menu").style.marginLeft = '-250px';
-    document.getElementById("main").style.marginLeft = '0';
+    document.getElementById("main").style.marginLeft = 'auto';
     document.getElementById("expandArrow").style.marginLeft = '0';
     document.body.style.backgroundColor = '#fff';
 }
