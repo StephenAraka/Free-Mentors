@@ -39,7 +39,7 @@ router.patch('/:id/accept', (req, res) => {
             res.json({ status: 200, data: session });
         });
     } else {
-        res.json({ status: 404, message: `Not found session with the id of ${req.params.id}` });
+        res.json({ status: 401, message: `Not found session with the id of ${req.params.id}` });
     }
 });
 
@@ -54,7 +54,7 @@ router.patch('/:id/reject', (req, res) => {
             res.json({ status: 200, data: session });
         });
     } else {
-        res.json({ status: 404, message: `Not found session with the id of ${req.params.id}` });
+        res.json({ status: 401, message: `Not found session with the id of ${req.params.id}` });
     }
 });
 

@@ -66,7 +66,7 @@ router.put('/:id', (req, res) => {
             }
         });
     } else {
-        res.json({ status: 404, message: `Not found user with the id of ${req.params.id}` });
+        res.json({ status: 401, message: `Not found user with the id of ${req.params.id}` });
     }
 });
 
@@ -77,7 +77,7 @@ router.delete('/:id', (req, res) => {
     if (found) {
         res.json({ status: 200, message: 'user deleted', data: users.filter((user) => user.userId !== parseInt(req.params.id, 10)) });
     } else {
-        res.json({ status: 404, message: `Not found user with the id of ${req.params.id}` });
+        res.json({ status: 401, message: `Not found user with the id of ${req.params.id}` });
     }
 });
 
@@ -105,7 +105,7 @@ router.patch('/:id', (req, res) => {
             }
         });
     } else {
-        res.json({ status: 404, message: `Not found user with the id of ${req.params.id}` });
+        res.json({ status: 401, message: `Not found user with the id of ${req.params.id}` });
     }
 });
 

@@ -65,7 +65,7 @@ router.put('/:id', (req, res) => {
             }
         });
     } else {
-        res.json({ status: 404, message: `Not found mentor with the id of ${req.params.id}` });
+        res.json({ status: 401, message: `Not found mentor with the id of ${req.params.id}` });
     }
 });
 
@@ -76,7 +76,7 @@ router.delete('/:id', (req, res) => {
     if (found) {
         res.json({ status: 200, message: 'mentor deleted', data: mentors.filter((mentor) => mentor.mentorId !== parseInt(req.params.id, 10)) });
     } else {
-        res.json({ status: 404, message: `Not found mentor with the id of ${req.params.id}` });
+        res.json({ status: 401, message: `Not found mentor with the id of ${req.params.id}` });
     }
 });
 
