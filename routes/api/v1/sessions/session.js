@@ -1,8 +1,8 @@
-const express = require('express');
-const uuid = require('uuid');
+import { Router } from 'express';
+import uuid from 'uuid';
+import sessions from '../../../../src/Sessions';
 
-const router = express.Router();
-const sessions = require('../../../../src/Sessions');
+const router = Router();
 
 // get all sessions
 router.get('/', (req, res) => {
@@ -58,4 +58,4 @@ router.patch('/:id/reject', (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;
