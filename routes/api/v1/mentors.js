@@ -1,8 +1,8 @@
-const express = require('express');
-const uuid = require('uuid');
+import { Router } from 'express';
+import uuid from 'uuid';
+import mentors from '../../../src/Mentors';
 
-const router = express.Router();
-const mentors = require('../../../src/Mentors');
+const router = Router();
 
 // get all mentors
 router.get('/', (req, res) => {
@@ -80,4 +80,4 @@ router.delete('/:id', (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;

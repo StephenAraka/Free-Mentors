@@ -1,10 +1,17 @@
-const express = require('express');
-const chalk = require('chalk');
-const debug = require('debug')('app');
-const path = require('path');
+import express from 'express';
+import chalk from 'chalk';
+import Debug from 'debug';
+import path from 'path';
+// Imported routes
+import signIn from './routes/api/v1/auth/signin';
+import signUp from './routes/api/v1/auth/signup';
+import users from './routes/api/v1/users';
+import mentors from './routes/api/v1/mentors';
+import sessions from './routes/api/v1/sessions/session';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
+const debug = Debug('app');
 
 // Set static folder middleware
 app.use(express.static(path.join(__dirname, 'public')));
@@ -50,18 +57,18 @@ app.get('/view-request-info', (req, res) => {
     res.sendFile(path.join(__dirname, 'views/view-request-info.html'));
 });
 
-// Users API route
-app.use('/api/v1/users', require('./routes/api/v1/users'));
+// Users
+app.use('/api/v1/users', users);
 
-// Mentors API route
-app.use('/api/v1/mentors', require('./routes/api/v1/mentors'));
+// Mentors
+app.use('/api/v1/mentors', mentors);
 
-// Auth routes
-app.use('/api/v1/auth/signup', require('./routes/api/v1/auth/signup'));
-app.use('/api/v1/auth/signin', require('./routes/api/v1/auth/signin'));
+// Authentication
+app.use('/api/v1/auth/signup', signUp);
+app.use('/api/v1/auth/signin', signIn);
 
-// Sessions API route
-app.use('/api/v1/sessions', require('./routes/api/v1/sessions/session'));
+// Sessions
+app.use('/api/v1/sessions', sessions);
 
 app.listen(PORT, () => {
     debug(`listening on port ${chalk.blue(PORT)}`);
