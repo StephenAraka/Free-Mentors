@@ -1,9 +1,8 @@
-const express = require('express');
-const uuid = require('uuid');
+import { Router } from 'express';
+import uuid from 'uuid';
+import users from '../../../../src/Users';
 
-const router = express.Router();
-const users = require('../../../../src/Users');
-
+const router = Router();
 // create a user
 router.post('/', (req, res) => {
     const { email, password } = req.body;
@@ -21,4 +20,4 @@ router.post('/', (req, res) => {
     return res.json({ status: 401, message: 'Incorrect email or password' });
 });
 
-module.exports = router;
+export default router;

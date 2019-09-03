@@ -37,4 +37,4 @@ const mentors = [
     }
 ];
 
-module.exports = mentors;
+export default mentors;
