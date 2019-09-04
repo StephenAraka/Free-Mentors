@@ -1,15 +1,39 @@
 import { Router } from 'express';
 import uuid from 'uuid';
+import * as jwt from 'jsonwebtoken';
 import users from '../../../src/Users';
 import mentors from '../../../src/Mentors';
+import secretKey from './auth/Key';
+import verifyToken from './auth/verifyToken';
+import admin from '../../../src/Admin';
 
 const router = Router();
 
-// get all users
-router.get('/', (req, res) => {
-    res.json(users);
-});
+// get all users - ONLY ADMIN
+router.post('/', verifyToken, (req, res) => {
+    const { email, password } = req.body;
 
+    if (email !== admin.email && password !== admin.password) {
+        res.json({
+            status: 403,
+            message: 'Forbidden'
+        });
+    } else {
+        jwt.verify(req.token, secretKey, (err) => {
+            if (err) {
+                res.json({
+                    status: 403,
+                    message: 'Forbidden'
+                });
+            } else {
+                res.json({
+                    status: 200,
+                    data: users
+                });
+            }
+        });
+    }
+});
 
 // get single user
 router.get('/:id', (req, res) => {
