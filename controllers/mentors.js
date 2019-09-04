@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import uuid from 'uuid';
-import mentors from '../../../src/Mentors';
+import mentors from '../dummyData/Mentors';
 // import verifyToken from './auth/verifyToken';
 
 const router = Router();

@@ -1,10 +1,11 @@
 import { Router } from 'express';
 import * as jwt from 'jsonwebtoken';
 import secretKey from './Key';
-import users from '../../../../src/Users';
+import users from '../../dummyData/Users';
+import admin from '../../dummyData/Admin';
 
 const router = Router();
-// create a user
+// login a user
 router.post('/', (req, res) => {
     const { email, password } = req.body;
 
@@ -31,6 +32,25 @@ router.post('/', (req, res) => {
                 }
             });
         }
+    }
+
+    if (email === admin.email && password === admin.password) {
+        jwt.sign({ admin }, secretKey, (err, token) => {
+            if (err) {
+                res.json({
+                    status: 403,
+                    message: 'Forbidden'
+                });
+            } else {
+                res.json({
+                    status: 201,
+                    message: 'Admin is successfully logged in',
+                    data: {
+                        token
+                    }
+                });
+            }
+        });
     }
 });
 
