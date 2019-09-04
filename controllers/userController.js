@@ -7,7 +7,7 @@ import secretKey from './auth/Key';
 // import verifyToken from './auth/verifyToken';
 import admin from '../dummyData/Admin';
 
-export default class UsersController {
+class UsersController {
     // get all users - ONLY ADMIN
     static getAllUsers(req, res) {
         const { email, password } = req.body;
@@ -34,3 +34,5 @@ export default class UsersController {
         }
     }
 }
+
+export default UsersController;

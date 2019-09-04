@@ -1,18 +1,14 @@
 import express from 'express';
 import chalk from 'chalk';
-import Debug from 'debug';
+import teebug from 'debug';
 import path from 'path';
 // Imported routes
-import routes from './routes/index';
-import signIn from './controllers/auth/signin';
-import signUp from './controllers/auth/signup';
-import users from './controllers/userController';
-import mentors from './controllers/mentors';
-import sessions from './controllers/sessions/session';
+import userRoutes from './routes/user';
+import signUpRoute from './routes/signUp';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
-const debug = Debug('app');
+const debug = teebug('app');
 
 // Set static folder middleware
 app.use(express.static(path.join(__dirname, 'public')));
@@ -58,22 +54,14 @@ app.get('/view-request-info', (req, res) => {
     res.sendFile(path.join(__dirname, 'views/view-request-info.html'));
 });
 
-const apiRoute = '/api/v1/';
-
-app.use('/', routes);
+const apiRoute = '/api/v1';
 
 // Users
-app.use(`${apiRoute}users`, users);
+app.use(`${apiRoute}/users`, userRoutes);
 
-// Mentors
-app.use(`${apiRoute}mentors`, mentors);
+// Auth
+app.use(`${apiRoute}/auth/signup`, signUpRoute);
 
-// Authentication
-app.use(`${apiRoute}auth/signup`, signUp);
-app.use(`${apiRoute}auth/signin`, signIn);
-
-// Sessions
-app.use(`${apiRoute}sessions`, sessions);
 
 app.listen(PORT, () => {
     debug(`listening on port ${chalk.blue(PORT)}`);
