@@ -1,5 +1,6 @@
 import { Router } from 'express';
-import uuid from 'uuid';
+import * as jwt from 'jsonwebtoken';
+import secretKey from './Key';
 import users from '../../../../src/Users';
 
 const router = Router();
@@ -13,11 +14,24 @@ router.post('/', (req, res) => {
         );
 
         if (user) {
-            return res.json({ status: 200, message: 'User is successfully logged in', data: { token: uuid.v4() } });
+            jwt.sign({ user }, secretKey, (err, token) => {
+                if (err) {
+                    res.json({
+                        status: 403,
+                        message: 'Forbidden'
+                    });
+                } else {
+                    res.json({
+                        status: 201,
+                        message: 'User is successfully logged in',
+                        data: {
+                            token
+                        }
+                    });
+                }
+            });
         }
     }
-
-    return res.json({ status: 401, message: 'Incorrect email or password' });
 });
 
 export default router;
