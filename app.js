@@ -3,11 +3,12 @@ import chalk from 'chalk';
 import Debug from 'debug';
 import path from 'path';
 // Imported routes
-import signIn from './routes/auth/signin';
-import signUp from './routes/auth/signup';
-import users from './routes/users';
-import mentors from './routes/mentors';
-import sessions from './routes/sessions/session';
+import routes from './routes/index';
+import signIn from './controllers/auth/signin';
+import signUp from './controllers/auth/signup';
+import users from './controllers/userController';
+import mentors from './controllers/mentors';
+import sessions from './controllers/sessions/session';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -59,6 +60,8 @@ app.get('/view-request-info', (req, res) => {
 
 const apiRoute = '/api/v1/';
 
+app.use('/', routes);
+
 // Users
 app.use(`${apiRoute}users`, users);
 
@@ -75,3 +78,5 @@ app.use(`${apiRoute}sessions`, sessions);
 app.listen(PORT, () => {
     debug(`listening on port ${chalk.blue(PORT)}`);
 });
+
+export default app;

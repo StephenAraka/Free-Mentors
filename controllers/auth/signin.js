@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import * as jwt from 'jsonwebtoken';
 import secretKey from './Key';
-import users from '../../../../src/Users';
-import admin from '../../../../src/Admin';
+import users from '../../dummyData/Users';
+import admin from '../../dummyData/Admin';
 
 const router = Router();
 // login a user
