@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import uuid from 'uuid';
-import sessions from '../../../../src/Sessions';
+import sessions from '../../dummyData/Sessions';
 
 const router = Router();
 

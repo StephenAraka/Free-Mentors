@@ -2,7 +2,7 @@ import { Router } from 'express';
 import uuid from 'uuid';
 import * as jwt from 'jsonwebtoken';
 import secretKey from './Key';
-import users from '../../../../src/Users';
+import users from '../../dummyData/Users';
 
 const router = Router();
 

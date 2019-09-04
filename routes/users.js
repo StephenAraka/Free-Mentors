@@ -1,11 +1,11 @@
 import { Router } from 'express';
 import uuid from 'uuid';
 import * as jwt from 'jsonwebtoken';
-import users from '../../../src/Users';
-import mentors from '../../../src/Mentors';
+import users from '../dummyData/Users';
+import mentors from '../dummyData/Mentors';
 import secretKey from './auth/Key';
 import verifyToken from './auth/verifyToken';
-import admin from '../../../src/Admin';
+import admin from '../dummyData/Admin';
 
 const router = Router();
 
@@ -28,7 +28,7 @@ router.post('/', verifyToken, (req, res) => {
             } else {
                 res.json({
                     status: 200,
-                    data: users
+                    data: { users, mentors }
                 });
             }
         });
@@ -105,7 +105,7 @@ router.delete('/:id', (req, res) => {
     }
 });
 
-// Update a user
+// Change a user to a mentor
 router.patch('/:id', (req, res) => {
     const found = users.some((user) => user.userId === parseInt(req.params.id, 10));
     if (found) {
