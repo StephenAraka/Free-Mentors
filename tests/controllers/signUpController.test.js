@@ -48,8 +48,21 @@ describe('POST </auth/v1/signup>', () => {
             .post(path)
             .send(mockUser[0].email = '')
             .end((err, res) => {
-                assert.equal(res.body.status, 400);
                 res.body.should.have.property('message');
+            });
+    });
+
+    it('signed up user should receive a jwt token', () => {
+        chai
+            .request(app)
+            .post(path)
+            .send(mockUser[0])
+            .end((err, res) => {
+                const { data } = res.body;
+                if (data) {
+                    data.should.have.property('token');
+                    assert.typeOf(data.token, 'string');
+                }
             });
     });
 });
