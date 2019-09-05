@@ -19,11 +19,13 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/register": "^7.5.5",
     "chai": "^4.2.0",
+    "coveralls": "^3.0.6",
     "eslint": "^6.2.2",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
     "mocha": "^6.2.0",
-    "nodemon": "^1.19.2"
+    "nodemon": "^1.19.2",
+    "nyc": "^14.1.1"
   },
   "nodemonConfig": {
     "restartable": "rs",
@@ -37,7 +39,8 @@
     }
   },
   "scripts": {
-    "test": "mocha tests/controllers/*.js --require @babel/register --exit",
+    "test": "nyc mocha tests/controllers/*.js --require @babel/register --exit",
+    "coverage": "nyc --reporter=lcov --reporter=text-summary npm test",
     "lint": "eslint",
     "start": "DEBUG=app nodemon app.js --exec babel-node --"
   },

@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-node_modules
-=======
 /node_modules
->>>>>>> acb7852eeb4715a2eff423dc845ad0c7926a9724
+/coverage
+.coveralls.yml
+/.nyc_output
