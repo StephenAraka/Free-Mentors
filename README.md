@@ -4,9 +4,10 @@ Free Mentors is a social initiative where accomplished professionals become role
 
 This is the development build of Free Mentors
 
-[![Coverage Status](https://coveralls.io/repos/github/StephenAraka/Free-Mentors/badge.svg?branch=master)](https://coveralls.io/github/StephenAraka/Free-Mentors?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/StephenAraka/Free-Mentors/badge.svg?branch=develop)](https://coveralls.io/github/StephenAraka/Free-Mentors?branch=develop)
 
-[![Build Status](https://travis-ci.org/StephenAraka/Free-Mentors.svg?branch=master)](https://travis-ci.org/StephenAraka/Free-Mentors)
+
+
 
 [View UI Demo](https://stephenaraka.github.io/Free-Mentors)
 
