@@ -16,17 +16,17 @@ describe('POST </auth/v1/signup>', () => {
             .post(path)
             .send(mockUser[0])
             .end((err, res) => {
-                const { user } = res.body.data;
+                const { newUser } = res.body.data;
                 assert.typeOf(res.body, 'object');
-                user.should.have.property('id');
-                user.should.have.property('firstName');
-                user.should.have.property('lastName');
-                user.should.have.property('email');
-                user.should.have.property('password');
-                user.should.have.property('address');
-                user.should.have.property('bio');
-                user.should.have.property('occupation');
-                user.should.have.property('expertise');
+                newUser.should.have.property('id');
+                newUser.should.have.property('firstName');
+                newUser.should.have.property('lastName');
+                newUser.should.have.property('email');
+                newUser.should.have.property('password');
+                newUser.should.have.property('address');
+                newUser.should.have.property('bio');
+                newUser.should.have.property('occupation');
+                newUser.should.have.property('expertise');
                 assert.equal(res.status, 201);
             });
     });

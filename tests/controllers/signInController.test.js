@@ -20,8 +20,8 @@ describe('POST </auth/v1/signin>', () => {
                 assert.equal(res.body.status, 201);
                 const { data } = res.body;
                 if (data) {
-                    data.should.have.property('token');
-                    assert.typeOf(data.token, 'string');
+                    data.should.have.property('user');
+                    assert.typeOf(data.user, 'object');
                 }
             });
     });
@@ -59,20 +59,6 @@ describe('POST </auth/v1/signin>', () => {
                 assert.typeOf(res.body, 'object');
                 assert.equal(res.body.status, 403);
                 res.body.should.have.property('message');
-            });
-    });
-
-    it('signed in user should receive a jwt token', () => {
-        chai
-            .request(app)
-            .post(path)
-            .send(mockUser[0])
-            .end((err, res) => {
-                const { data } = res.body;
-                if (data) {
-                    data.should.have.property('token');
-                    assert.typeOf(data.token, 'string');
-                }
             });
     });
 });
