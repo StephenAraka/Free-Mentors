@@ -15,7 +15,8 @@ class UsersController {
 
     static getAllMentors(req, res) {
         res.status(200).json({
-            mentors
+            status: 200,
+            data: mentors
         });
     }
 }
