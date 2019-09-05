@@ -1,5 +1,5 @@
 import Joi from '@hapi/joi';
-import users from '../../dummyData/Users';
+import admin from '../../dummyData/Admin';
 import createToken from '../../helpers/createNewToken';
 
 const schema = Joi.object().keys({
@@ -7,7 +7,7 @@ const schema = Joi.object().keys({
     password: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/)
 });
 
-export default class SignInController {
+export default class AdminSignInController {
     // login a user
     static signIn(req, res) {
         const { email, password } = req.body;
@@ -21,17 +21,17 @@ export default class SignInController {
             }
         });
 
-        const user = users.find(
-            (user) => user.email === email && user.password === password // TODO: hash
+        const myAdmin = admin.find(
+            (admin) => admin.email === email && admin.password === password // TODO: hash
         );
 
-        if (user) {
-            user.token = createToken(email);
-            res.status(201).json({
+        if (myAdmin) {
+            myAdmin.token = createToken(email);
+            res.json({
                 status: 201,
-                message: 'User is successfully logged in',
+                message: 'Admin is successfully logged in',
                 data: {
-                    user
+                    admin: myAdmin
                 }
             });
         } else {
