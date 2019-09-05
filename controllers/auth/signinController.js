@@ -1,8 +1,7 @@
-import * as jwt from 'jsonwebtoken';
 import Joi from '@hapi/joi';
-import secretKey from './Key';
 import users from '../../dummyData/Users';
 import admin from '../../dummyData/Admin';
+import createToken from '../../helpers/createNewToken';
 
 const schema = Joi.object().keys({
     email: Joi.string().email({ minDomainSegments: 2 }),
@@ -28,46 +27,34 @@ export default class SignInController {
         );
 
         if (user) {
-            jwt.sign({ user }, secretKey, (err, token) => {
-                if (err) {
-                    res.json({
-                        status: 403,
-                        message: 'Forbidden'
-                    });
-                } else {
-                    res.status(201).json({
-                        status: 201,
-                        message: 'User is successfully logged in',
-                        data: {
-                            token
-                        }
-                    });
+            user.token = createToken(email);
+            res.json({
+                status: 201,
+                message: 'User is successfully logged in',
+                data: {
+                    user
                 }
             });
         } else {
-            res.status(404).json({
-                status: 404,
-                message: 'Email address not found'
+            res.json({
+                status: 403,
+                message: 'Forbidden'
             });
         }
 
-
         if (email === admin.email && password === admin.password) {
-            jwt.sign({ admin }, secretKey, (err, token) => {
-                if (err) {
-                    res.json({
-                        status: 403,
-                        message: 'Forbidden'
-                    });
-                } else {
-                    res.json({
-                        status: 201,
-                        message: 'Admin is successfully logged in',
-                        data: {
-                            token
-                        }
-                    });
+            admin.token = createToken(email);
+            res.json({
+                status: 201,
+                message: 'Admin is successfully logged in',
+                data: {
+                    admin
                 }
+            });
+        } else {
+            res.json({
+                status: 403,
+                message: 'Forbidden'
             });
         }
     }

@@ -1,7 +1,7 @@
 import uuid from 'uuid';
-import * as jwt from 'jsonwebtoken';
-import secretKey from './Key';
 import users from '../../dummyData/Users';
+import createToken from '../../helpers/createNewToken';
+
 
 export default class SignUpController {
     static signUp(req, res) {
@@ -44,20 +44,11 @@ export default class SignUpController {
         if (!newUser.firstName || !newUser.lastName || !newUser.email) {
             res.json({ status: 400, message: 'Please include names and email' });
         } else {
-            jwt.sign({ newUser }, secretKey, (err, token) => {
-                if (err) {
-                    res.json({
-                        status: 403,
-                        message: 'Forbidden'
-                    });
-                } else {
-                    res.status(201).json({
-                        message: 'User created successfully',
-                        data: {
-                            token,
-                            user: newUser
-                        }
-                    });
+            newUser.token = createToken(newUser.email);
+            res.status(201).json({
+                message: 'User created successfully',
+                data: {
+                    newUser
                 }
             });
             users.push(newUser);
