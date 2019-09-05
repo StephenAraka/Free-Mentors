@@ -2,7 +2,7 @@ import chai, { assert } from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../../app';
 
-import mockUser from '../mockData/signUp';
+import mockUser from '../mockData/User';
 
 chai.use(chaiHttp);
 chai.should();
