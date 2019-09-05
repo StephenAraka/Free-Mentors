@@ -7,7 +7,7 @@ const openMenu = () => {
 
 const closeMenu = () => {
     document.getElementById("side-menu").style.marginLeft = '-250px';
-    document.getElementById("main").style.marginLeft = '0';
+    document.getElementById("main").style.marginLeft = 'auto';
     document.getElementById("expandArrow").style.marginLeft = '0';
     document.body.style.backgroundColor = '#fff';
 }
@@ -15,5 +15,5 @@ const closeMenu = () => {
 const requestSessionBtn = document.querySelector(".btn-request-session");
 
 requestSessionBtn.addEventListener("click", () => {
-    alert("Holla Holla Holla!");
+    console.log("clicked!")
 });

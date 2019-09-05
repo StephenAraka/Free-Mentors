@@ -1,63 +1,83 @@
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <script defer src="../js/mentor.js"></script>
-        <link rel="stylesheet" href="../assets/css/mentor.css">
-        <title>Session Requests</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="../js/mentor.js"></script>
+    <link rel="stylesheet" href="../assets/css/mentor.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <title>Session Requests</title>
+</head>
 
-    <body>
-        <div class="container">
-            <header>
-                <img class="logo" src="../assets/img/logo.svg" alt="FreeMentorsLogo">
-                <h1>Free Mentors</h1>
-                <a href="./sign-in.html" class="btn-sign-out">Sign Out</a>
-            </header>
+<body>
+    <div class="container">
+        <header>
+                <a href="./view-requests.html"><img class="logo" src="../assets/img/logo.svg" alt="FreeMentorsLogo"></a>
+            <h1>Free Mentors</h1>
+            <a href="../index.html" class="btn-sign-out">Sign Out</a>
+        </header>
 
-            <div id="side-menu" class="side-menu" onmouseleave="closeMenu()">
-                <ul>
-                    <!-- <li><img class="logo" src="../assets/img/logo.svg" alt="FreeMentorsLogo"></li> -->
-                    <li><a class="active" href="./view-requests.html">Session Requests</a></li>
-                    <li><a href="./view-all-users.html">View Users</a></li>
-                    <li><a href="#">Session History</a></li>
-                </ul>
+        <div id="side-menu" class="side-menu" onmouseleave="closeMenu()">
+            <ul>
+                <li><a class="active" href="./view-all-users.html">Session Requests</a></li>
+                <li><a href="#">Session History</a></li>
+            </ul>
+        </div>
+
+        <img src="../assets/img/arrow.svg" alt="menu" class="expand-arrow" id="expandArrow" onmouseover="openMenu()" />
+
+        <div id="main" class="main">
+            <div class="intro">
+                <h1>View Session Requests</h1>
+                <p>Hello, you have 4 pending mentorship session requests. Please review and respond to them.</p>
+                <p>Scroll below to view all your available mentorship requests.</p>
             </div>
 
-            <img src="../assets/img/arrow.svg" alt="menu" class="expand-arrow" id="expandArrow" onmouseover="openMenu()" />
-
-            <div id="main" class="main">
-                <div class="title">
-                    <h1>Session Requests</h1>
+            <div class="card-container">
+                <div class="card">
+                    <img src="../assets/img/user/u22.jpg" alt="zuckerberg">
+                    <div class="caption-container">
+                        <h4>Sofia Helen</h4>
+                        <p>Social Sciences Student</p>
+                        <p>INTERESTS: Psychology, Writing</p>
+                        <a href="./view-request-info.html" class="btn-view-info">View Request</a>
+                    </div>
                 </div>
 
-                <table id="users">
-                    <tr>
-                        <th>User</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    <tr>
-                        <td>Stephen Araka</td>
-                        <td><button class="accept">Confirm</button></td>
-                        <td><button class="decline">Decline</button></td>
-                    </tr>
-                    <tr>
-                        <td>Douglas Akena</td>
-                        <td><button class="accept">Confirm</button></td>
-                        <td><button class="decline">Decline</button></td>
-                    </tr>
-                    <tr>
-                        <td>Najib Mazio</td>
-                        <td><button class="accept">Confirm</button></td>
-                        <td><button class="decline">Decline</button></td>
-                    </tr>
-                </table>
+                <div class="card">
+                    <img src="../assets/img/user/u11.png" alt="zuckerberg">
+                    <div class="caption-container">
+                        <h4>Mark Browski</h4>
+                        <p>Business Administrator</p>
+                        <p>INTERESTS: Business</p>
+                        <a href="./view-request-info.html" class="btn-view-info">View Request</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../assets/img/user/u111.png" alt="zuckerberg">
+                    <div class="caption-container">
+                        <h4>Steve Wix</h4>
+                        <p>Waiter</p>
+                        <p>INTERESTS: Cooking, Baking</p>
+                        <a href="./view-request-info.html" class="btn-view-info">View Request</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../assets/img/user/u222.jpg" alt="zuckerberg">
+                    <div class="caption-container">
+                        <h4>Flora Tiana</h4>
+                        <p>IT Student</p>
+                        <p>INTERESTS: Programming, Technology</p>
+                        <a href="./view-request-info.html" class="btn-view-info">View Request</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </body>
+    </div>
+</body>
 
-    </html>
+</html>

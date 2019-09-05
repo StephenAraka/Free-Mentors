@@ -111,6 +111,10 @@ header {
     cursor: pointer;
 }
 
+.mentors#users th {
+    background-color: rgb(76, 175, 175);
+}
+
 #users tr>td>button.decline {
     background-color: #ec001fcc;
     color: white;
