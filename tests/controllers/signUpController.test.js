@@ -52,5 +52,4 @@ describe('POST </auth/v1/signup>', () => {
                 res.body.should.have.property('message');
             });
     });
-
 });
