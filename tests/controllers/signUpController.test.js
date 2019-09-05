@@ -42,7 +42,7 @@ describe('POST </auth/v1/signup>', () => {
             });
     });
 
-    it('should not sign up if no names or email', () => {
+    it('should not sign up if no names or email are provided', () => {
         chai
             .request(app)
             .post(path)

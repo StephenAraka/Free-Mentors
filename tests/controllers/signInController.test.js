@@ -49,4 +49,30 @@ describe('POST </auth/v1/signin>', () => {
                 res.body.should.have.property('message');
             });
     });
+
+    it('If both email and password are not provided, don\'t log in, notify user', () => {
+        chai
+            .request(app)
+            .post(path)
+            .send(mockUser[3])
+            .end((err, res) => {
+                assert.typeOf(res.body, 'object');
+                assert.equal(res.body.status, 403);
+                res.body.should.have.property('message');
+            });
+    });
+
+    it('signed in user should receive a jwt token', () => {
+        chai
+            .request(app)
+            .post(path)
+            .send(mockUser[0])
+            .end((err, res) => {
+                const { data } = res.body;
+                if (data) {
+                    data.should.have.property('token');
+                    assert.typeOf(data.token, 'string');
+                }
+            });
+    });
 });
