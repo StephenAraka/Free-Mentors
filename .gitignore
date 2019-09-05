@@ -1,7 +1,4 @@
 /node_modules
-<<<<<<< HEAD
 /coverage
 .coveralls.yml
 /.nyc_output
-=======
->>>>>>> ch: add git config
