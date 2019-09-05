@@ -4,7 +4,7 @@ import teebug from 'debug';
 import path from 'path';
 // Imported routes
 import userRoutes from './routes/user';
-import signUpRoute from './routes/signUp';
+import { signUpRoute, signInRoute } from './routes/auth';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -61,7 +61,7 @@ app.use(`${apiRoute}/users`, userRoutes);
 
 // Auth
 app.use(`${apiRoute}/auth/signup`, signUpRoute);
-
+app.use(`${apiRoute}/auth/signin`, signInRoute);
 
 app.listen(PORT, () => {
     debug(`listening on port ${chalk.blue(PORT)}`);

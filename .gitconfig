@@ -1,0 +1,2 @@
+[alias]
+    fr = "!f() { git fetch && git rebase origin/"$1"; }; f"
