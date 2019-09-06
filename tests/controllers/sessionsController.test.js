@@ -42,3 +42,18 @@ describe('PATCH Accept a session', () => {
             });
     });
 });
+
+describe('PATCH Reject a session', () => {
+    it('should change status to rejected ', () => {
+        chai
+            .request(app)
+            .patch(`${sessionsPath}/1/reject`)
+            .set('Authorization', `Bearer ${mentorToken}`)
+            .end((err, res) => {
+                const { data } = res.body;
+                res.should.have.status(200);
+                res.body.should.have.be.a('object');
+                assert.equal(data.status, 'rejected');
+            });
+    });
+});

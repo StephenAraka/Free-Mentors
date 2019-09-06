@@ -4,6 +4,7 @@ import teebug from 'debug';
 import path from 'path';
 // Imported routes
 import { userRoutes, mentorRoutes, sessionsRoutes } from './routes/user';
+import sessionsReject from './routes/sessions';
 import { signUpRoute, signInRoute, adminRoute } from './routes/auth';
 
 const PORT = process.env.PORT || 3000;
@@ -67,6 +68,7 @@ app.use(`${apiRoute}/auth/admin/signin`, adminRoute);
 
 // Sessions
 app.use(`${apiRoute}/sessions`, sessionsRoutes);
+app.use(`${apiRoute}/sessions`, sessionsReject);
 
 app.listen(PORT, () => {
     debug(`listening on port ${chalk.blue(PORT)}`);

@@ -130,6 +130,26 @@ class UsersController {
             });
         }
     }
+
+    static rejectRequest(req, res) {
+        const found = sessions.some((session) => session.sessionId === parseInt(req.params.id, 10));
+        if (found) {
+            sessions.forEach((session) => {
+                if (session.sessionId === parseInt(req.params.id, 10)) {
+                    session.status = 'rejected';
+                }
+                res.status(200).json({
+                    status: 200,
+                    data: session
+                });
+            });
+        } else {
+            res.satus(400).json({
+                status: 404,
+                message: `Not found session with the id of ${req.params.id}`
+            });
+        }
+    }
 }
 
 export default UsersController;
