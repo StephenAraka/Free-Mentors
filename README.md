@@ -62,5 +62,8 @@ You can check out the front end User Interface [here](https://stephenaraka.githu
  - To start the app run the command `npm start`
  App will start on your local host
 
+ ### Heroku page
+ - [Here](https://mentors4free.herokuapp.com)
+
 ### Version
 - `v1.0.0`
