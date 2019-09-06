@@ -6,12 +6,20 @@ import { checkforAdmin, checkforUser } from '../middleware/getUserRole';
 
 const userRoutes = Router();
 const mentorRoutes = Router();
+const sessionsRoutes = Router();
 
 // user routes
 userRoutes.get('/', verifyToken, checkforAdmin, UsersController.getAllUsers);
-mentorRoutes.get('/', verifyToken, checkforUser, UsersController.getAllMentors);
-mentorRoutes.get('/:id', verifyToken, checkforUser, UsersController.getSpecificMentor);
-// userRoutes.post('/:id', UsersController.getSingleUser);
 userRoutes.patch('/:id', verifyToken, checkforAdmin, UsersController.changeToMentor);
 
-export { userRoutes, mentorRoutes };
+// mentor routes
+mentorRoutes.get('/', verifyToken, checkforUser, UsersController.getAllMentors);
+mentorRoutes.get('/:id', verifyToken, checkforUser, UsersController.getSpecificMentor);
+
+
+// sessions routes
+sessionsRoutes.post('/', UsersController.createSession);
+// userRoutes.post('/:id', UsersController.getSingleUser);
+
+
+export { userRoutes, mentorRoutes, sessionsRoutes };

@@ -2,6 +2,7 @@
 import uuid from 'uuid';
 import users from '../dummyData/Users';
 import mentors from '../dummyData/Mentors';
+import sessions from '../dummyData/Sessions';
 
 class UsersController {
     // get all users - ONLY ADMIN
@@ -54,6 +55,7 @@ class UsersController {
 
     static getSpecificMentor(req, res) {
         let specificMentor;
+        // eslint-disable-next-line array-callback-return
         mentors.map((element) => {
             if (element.mentorId === parseInt(req.params.id, 10)) {
                 specificMentor = element;
@@ -89,6 +91,24 @@ class UsersController {
                 role
             }
         });
+    }
+
+    static createSession(req, res) {
+        const newSession = {
+            sessionId: uuid.v4(),
+            mentorId: req.body.mentorId,
+            menteeId: req.body.menteeId,
+            questions: req.body.questions,
+            menteeEmail: req.body.menteeEmail,
+            status: 'pending'
+        };
+    
+        if (!newSession.menteeId || !newSession.menteeId || !newSession.questions) {
+            res.json({ status: 400, message: 'Please include mentor and mentee ID and email' });
+        } else {
+            sessions.push(newSession);
+            res.status(201).json({ status: 201, data: newSession });
+        }
     }
 }
 

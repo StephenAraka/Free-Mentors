@@ -3,7 +3,7 @@ import chalk from 'chalk';
 import teebug from 'debug';
 import path from 'path';
 // Imported routes
-import { userRoutes, mentorRoutes } from './routes/user';
+import { userRoutes, mentorRoutes, sessionsRoutes } from './routes/user';
 import { signUpRoute, signInRoute, adminRoute } from './routes/auth';
 
 const PORT = process.env.PORT || 3000;
@@ -64,6 +64,9 @@ app.use(`${apiRoute}/mentors`, mentorRoutes);
 app.use(`${apiRoute}/auth/signup`, signUpRoute);
 app.use(`${apiRoute}/auth/signin`, signInRoute);
 app.use(`${apiRoute}/auth/admin/signin`, adminRoute);
+
+// Sessions
+app.use(`${apiRoute}/sessions`, sessionsRoutes);
 
 app.listen(PORT, () => {
     debug(`listening on port ${chalk.blue(PORT)}`);
