@@ -7,8 +7,10 @@ import createToken from '../../helpers/createNewToken';
 chai.use(chaiHttp);
 chai.should();
 const mentorsPath = '/api/v1/mentors';
+const usersPath = '/api/v1/users';
+
 const userToken = createToken('henry@gmail.com');
-// const adminToken = createToken('admin@gmail.com');
+const adminToken = createToken('admin@gmail.com');
 
 describe('GET ALL MENTORS', () => {
     it('A user should be able to get all mentors', () => {
@@ -35,6 +37,30 @@ describe('GET ALL MENTORS', () => {
     });
 });
 
+<<<<<<< HEAD
+describe('PATCH </api/v1/users/1> Admin should change a user to mentor', () => {
+    it('It should check if user is available (check for ID)', () => {
+        chai
+            .request(app)
+            .patch(`${usersPath}/99`)
+            .set('Authorization', `Bearer ${adminToken}`)
+            .end((err, res) => {
+                res.should.have.status(404);
+                assert.typeOf(res.body, 'object');
+                res.body.should.have.property('message').eql('Not found user with the id of 99');
+            });
+    });
+
+    it('It should change user to a mentor', () => {
+        chai
+            .request(app)
+            .patch(`${usersPath}/1`)
+            .set('Authorization', `Bearer ${adminToken}`)
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.have.be.a('object');
+                res.body.should.have.property('message').eql('User account changed to mentor');
+=======
 describe('GET specific mentor', () => {
     it('It should return the details of a specific mentor', () => {
         chai
@@ -55,6 +81,7 @@ describe('GET specific mentor', () => {
                 data.should.have.property('occupation');
                 data.should.have.property('expertise');
                 data.should.have.property('role');
+>>>>>>> develop
             });
     });
 });

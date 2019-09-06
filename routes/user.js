@@ -12,6 +12,6 @@ userRoutes.get('/', verifyToken, checkforAdmin, UsersController.getAllUsers);
 mentorRoutes.get('/', verifyToken, checkforUser, UsersController.getAllMentors);
 mentorRoutes.get('/:id', verifyToken, checkforUser, UsersController.getSpecificMentor);
 // userRoutes.post('/:id', UsersController.getSingleUser);
-// userRoutes.patch('/:id', UsersController.changeToMentor);
+userRoutes.patch('/:id', verifyToken, checkforAdmin, UsersController.changeToMentor);
 
 export { userRoutes, mentorRoutes };

@@ -70,6 +70,45 @@ BRH:2
 end_of_record
 TN:
 SF:/home/themanhimself/Documents/Dev/Free-Mentors/controllers/userController.js
+<<<<<<< HEAD
+FN:8,getAllUsers
+FN:15,getAllMentors
+FN:21,changeToMentor
+FN:22,(anonymous_9)
+FN:25,(anonymous_10)
+FN:40,(anonymous_11)
+FNF:6
+FNH:3
+FNDA:0,getAllUsers
+FNDA:1,getAllMentors
+FNDA:1,changeToMentor
+FNDA:4,(anonymous_9)
+FNDA:0,(anonymous_10)
+FNDA:0,(anonymous_11)
+DA:2,1
+DA:3,1
+DA:4,1
+DA:9,0
+DA:16,1
+DA:22,4
+DA:24,1
+DA:25,0
+DA:26,0
+DA:27,0
+DA:39,0
+DA:40,0
+DA:41,0
+DA:48,1
+DA:53,1
+LF:15
+LH:8
+BRDA:24,0,0,0
+BRDA:24,0,1,1
+BRDA:26,1,0,0
+BRDA:26,1,1,0
+BRF:4
+BRH:1
+=======
 FN:9,getAllUsers
 FN:16,getAllMentors
 FN:22,getSpecificMentor
@@ -101,6 +140,7 @@ BRDA:29,1,0,0
 BRDA:29,1,1,1
 BRF:4
 BRH:3
+>>>>>>> develop
 end_of_record
 TN:
 SF:/home/themanhimself/Documents/Dev/Free-Mentors/controllers/auth/Key.js
@@ -262,12 +302,21 @@ SF:/home/themanhimself/Documents/Dev/Free-Mentors/helpers/createNewToken.js
 FN:4,createToken
 FNF:1
 FNH:1
+<<<<<<< HEAD
+FNDA:6,createToken
+DA:1,1
+DA:2,1
+DA:4,1
+DA:5,6
+DA:8,6
+=======
 FNDA:5,createToken
 DA:1,1
 DA:2,1
 DA:4,1
 DA:5,5
 DA:8,5
+>>>>>>> develop
 DA:11,1
 LF:6
 LH:6
@@ -281,6 +330,43 @@ FN:9,(anonymous_2)
 FN:23,checkforAdmin
 FN:26,(anonymous_4)
 FNF:4
+<<<<<<< HEAD
+FNH:4
+FNDA:1,checkforUser
+FNDA:2,(anonymous_2)
+FNDA:1,checkforAdmin
+FNDA:1,(anonymous_4)
+DA:1,1
+DA:2,1
+DA:6,1
+DA:7,1
+DA:8,1
+DA:9,2
+DA:12,1
+DA:13,1
+DA:14,1
+DA:16,0
+DA:23,1
+DA:24,1
+DA:25,1
+DA:26,1
+DA:29,1
+DA:30,1
+DA:31,1
+DA:33,0
+LF:18
+LH:16
+BRDA:9,0,0,2
+BRDA:9,0,1,1
+BRDA:12,1,0,1
+BRDA:12,1,1,0
+BRDA:26,2,0,1
+BRDA:26,2,1,1
+BRDA:29,3,0,1
+BRDA:29,3,1,0
+BRF:8
+BRH:6
+=======
 FNH:2
 FNDA:2,checkforUser
 FNDA:4,(anonymous_2)
@@ -316,6 +402,7 @@ BRDA:29,3,0,0
 BRDA:29,3,1,0
 BRF:8
 BRH:3
+>>>>>>> develop
 end_of_record
 TN:
 SF:/home/themanhimself/Documents/Dev/Free-Mentors/middleware/verifyToken.js
@@ -379,7 +466,11 @@ DA:7,1
 DA:8,1
 DA:11,1
 DA:12,1
+<<<<<<< HEAD
+DA:14,1
+=======
 DA:13,1
+>>>>>>> develop
 LF:9
 LH:9
 BRF:0
