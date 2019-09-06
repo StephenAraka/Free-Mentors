@@ -2,7 +2,7 @@ import { Router } from 'express';
 import UsersController from '../controllers/userController';
 import verifyToken from '../middleware/verifyToken';
 // import checkforUser from '../middleware/getUserRole';
-import { checkforAdmin, checkforUser } from '../middleware/getUserRole';
+import { checkforAdmin, checkforUser, checkforMentor } from '../middleware/getUserRole';
 
 const userRoutes = Router();
 const mentorRoutes = Router();
@@ -19,6 +19,6 @@ mentorRoutes.get('/:id', verifyToken, checkforUser, UsersController.getSpecificM
 
 // sessions routes
 sessionsRoutes.post('/', verifyToken, checkforUser, UsersController.createSession);
-sessionsRoutes.patch('/:id/accept', verifyToken, checkforUser, UsersController.acceptRequest);
+sessionsRoutes.patch('/:id/accept', verifyToken, checkforMentor, UsersController.acceptRequest);
 
 export { userRoutes, mentorRoutes, sessionsRoutes };

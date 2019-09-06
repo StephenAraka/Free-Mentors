@@ -1,5 +1,6 @@
 import users from '../dummyData/Users';
 import admin from '../dummyData/Admin';
+import mentors from '../dummyData/Mentors';
 
 // import mentors from '../dummyData/Mentors';
 
@@ -11,6 +12,23 @@ const checkforUser = (req, res, next) => {
 
     if (userExist) {
         req.user = userExist;
+        next();
+    } else {
+        res.status(403).json({
+            status: 403,
+            message: 'Invalid user request'
+        });
+    }
+};
+
+const checkforMentor = (req, res, next) => {
+    let mentorExist = '';
+    mentorExist = mentors.find(
+        (mentor) => mentor.email === req.token.email && mentor.role === 'mentor' // TODO: hash
+    );
+
+    if (mentorExist) {
+        req.user = mentorExist;
         next();
     } else {
         res.status(403).json({
@@ -37,4 +55,4 @@ const checkforAdmin = (req, res, next) => {
     }
 };
 
-export { checkforUser, checkforAdmin };
+export { checkforUser, checkforAdmin, checkforMentor };

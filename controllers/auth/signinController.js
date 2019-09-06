@@ -1,5 +1,6 @@
 import Joi from '@hapi/joi';
 import users from '../../dummyData/Users';
+import mentors from '../../dummyData/Mentors';
 import createToken from '../../helpers/createNewToken';
 
 const schema = Joi.object().keys({
@@ -25,6 +26,10 @@ export default class SignInController {
             (user) => user.email === email && user.password === password // TODO: hash
         );
 
+        const mentor = mentors.find(
+            (mentor) => mentor.email === email && mentor.password === password // TODO: hash
+        );
+
         if (user) {
             user.token = createToken(email);
             res.status(200).json({
@@ -32,6 +37,15 @@ export default class SignInController {
                 message: 'User is successfully logged in',
                 data: {
                     token: user.token
+                }
+            });
+        } else if (mentor) {
+            mentor.token = createToken(email);
+            res.status(200).json({
+                status: 200,
+                message: 'User is successfully logged in',
+                data: {
+                    token: mentor.token
                 }
             });
         } else {
