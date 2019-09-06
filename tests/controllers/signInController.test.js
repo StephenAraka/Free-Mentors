@@ -17,11 +17,11 @@ describe('POST </auth/v1/signin>', () => {
             .send(mockUser[0])
             .end((err, res) => {
                 assert.typeOf(res.body, 'object');
-                assert.equal(res.body.status, 201);
+                assert.equal(res.body.status, 200);
                 const { data } = res.body;
                 if (data) {
-                    data.should.have.property('user');
-                    assert.typeOf(data.user, 'object');
+                    data.should.have.property('token');
+                    assert.typeOf(data.token, 'string');
                 }
             });
     });

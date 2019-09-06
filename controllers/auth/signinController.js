@@ -27,11 +27,11 @@ export default class SignInController {
 
         if (user) {
             user.token = createToken(email);
-            res.status(201).json({
-                status: 201,
+            res.status(200).json({
+                status: 200,
                 message: 'User is successfully logged in',
                 data: {
-                    user
+                    token: user.token
                 }
             });
         } else {
