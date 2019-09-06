@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">88.24% </span>
+        <span class="strong">52.94% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>15/17</span>
+        <span class='fraction'>9/17</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">75% </span>
+        <span class="strong">25% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>3/4</span>
+        <span class='fraction'>1/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">83.33% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>5/6</span>
+        <span class='fraction'>3/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">86.67% </span>
+        <span class="strong">53.33% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>13/15</span>
+        <span class='fraction'>8/15</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -120,26 +120,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -147,6 +138,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -175,10 +175,10 @@ class UsersController {
     static changeToMentor(req, res) {
         const found = users.some((user) =&gt; user.userId === parseInt(req.params.id, 10));
 &nbsp;
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (found) {
-            users.forEach((user) =&gt; {
-                if (user.userId === parseInt(req.params.id, 10)) {
-                    const newMentor = {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (found) {
+<span class="cstat-no" title="statement not covered" >            users.f</span>orEach(<span class="fstat-no" title="function not covered" >(u</span>ser) =&gt; {
+<span class="cstat-no" title="statement not covered" >                if (user.userId === parseInt(req.params.id, 10)) {</span>
+                    const newMentor = <span class="cstat-no" title="statement not covered" >{</span>
                         id: uuid.v4(),
                         firstName: user.firstName,
                         lastName: user.lastName,
@@ -190,16 +190,16 @@ class UsersController {
                         expertise: user.expertise,
                         role: 'mentor'
                     };
-                    mentors.push(newMentor);
-                    users.filter((user) =&gt; user.userId !== parseInt(req.params.id, 10));
-                    res.status(200).json({
+<span class="cstat-no" title="statement not covered" >                    mentors.p</span>ush(newMentor);
+<span class="cstat-no" title="statement not covered" >                    users.f</span>ilter(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(u</span></span>ser) =&gt; user.userId !== parseInt(req.params.id, 10));
+<span class="cstat-no" title="statement not covered" >                    res.</span>status(200).json({
                         status: 200,
                         message: 'User account changed to mentor'
                     });
                 }
             });
         } else {
-<span class="cstat-no" title="statement not covered" >            res.</span>json({ status: 404, message: `Not found user with the id of ${req.params.id}` });
+            res.json({ status: 404, message: `Not found user with the id of ${req.params.id}` });
         }
     }
 }
@@ -211,7 +211,7 @@ export default UsersController;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Sep 06 2019 05:02:10 GMT+0300 (EAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Sep 06 2019 05:07:41 GMT+0300 (EAT)
 </div>
 </div>
 <script src="../../prettify.js"></script>

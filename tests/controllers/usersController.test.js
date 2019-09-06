@@ -38,6 +38,18 @@ describe('GET ALL MENTORS', () => {
 });
 
 describe('PATCH </api/v1/users/1> Admin should change a user to mentor', () => {
+    it('It should check if user is available (check for ID)', () => {
+        chai
+            .request(app)
+            .patch(`${usersPath}/99`)
+            .set('Authorization', `Bearer ${adminToken}`)
+            .end((err, res) => {
+                res.should.have.status(404);
+                assert.typeOf(res.body, 'object');
+                res.body.should.have.property('message').eql('Not found user with the id of 99');
+            });
+    });
+
     it('It should change user to a mentor', () => {
         chai
             .request(app)

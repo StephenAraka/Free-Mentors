@@ -45,7 +45,10 @@ class UsersController {
                 }
             });
         } else {
-            res.json({ status: 404, message: `Not found user with the id of ${req.params.id}` });
+            res.status(404).json({
+                status: 404,
+                message: `Not found user with the id of ${req.params.id}`
+            });
         }
     }
 }
