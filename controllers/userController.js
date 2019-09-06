@@ -18,6 +18,45 @@ class UsersController {
             data: mentors
         });
     }
+
+    static getSpecificMentor(req, res) {
+        let specificMentor;
+        mentors.map((element) => {
+            if (element.mentorId === parseInt(req.params.id, 10)) {
+                specificMentor = element;
+            }
+        });
+        if (!specificMentor) {
+            return res.json({ status: 400, message: `Not found mentor with the id of ${req.params.id}` });
+        }
+
+        const {
+            mentorId,
+            firstName,
+            lastName,
+            email,
+            address,
+            bio,
+            occupation,
+            expertise,
+            role
+        } = specificMentor;
+
+        return res.status(200).json({
+            status: 200,
+            data: {
+                mentorId,
+                firstName,
+                lastName,
+                email,
+                address,
+                bio,
+                occupation,
+                expertise,
+                role
+            }
+        });
+    }
 }
 
 export default UsersController;

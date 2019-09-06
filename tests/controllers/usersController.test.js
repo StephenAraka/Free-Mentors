@@ -30,6 +30,31 @@ describe('GET ALL MENTORS', () => {
                 data[0].should.have.property('bio');
                 data[0].should.have.property('occupation');
                 data[0].should.have.property('expertise');
-                data[0].should.have.property('role');            });
+                data[0].should.have.property('role');
+            });
+    });
+});
+
+describe('GET specific mentor', () => {
+    it('It should return the details of a specific mentor', () => {
+        chai
+            .request(app)
+            .get(`${mentorsPath}/1`)
+            .set('Authorization', `Bearer ${userToken}`)
+            .end((err, res) => {
+                const { data } = res.body;
+                assert.typeOf(res.body, 'object');
+                assert.equal(res.status, 200);
+                assert.typeOf(data, 'object');
+                data.should.have.property('mentorId');
+                data.should.have.property('firstName');
+                data.should.have.property('lastName');
+                data.should.have.property('email');
+                data.should.have.property('address');
+                data.should.have.property('bio');
+                data.should.have.property('occupation');
+                data.should.have.property('expertise');
+                data.should.have.property('role');
+            });
     });
 });
