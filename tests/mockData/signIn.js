@@ -17,4 +17,23 @@ const mockUser = [
     },
 ];
 
-export default mockUser;
+const mockAdmin = [
+    {
+        email: 'admin@gmail.com',
+        password: 'secret'
+    },
+    {
+        email: '',
+        password: 'secret'
+    },
+    {
+        email: 'admin@gmail.com',
+        password: ''
+    },
+    {
+        email: '',
+        password: ''
+    },
+];
+
+export { mockUser, mockAdmin };

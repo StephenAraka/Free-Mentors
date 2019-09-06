@@ -27,11 +27,11 @@ export default class AdminSignInController {
 
         if (myAdmin) {
             myAdmin.token = createToken(email);
-            res.json({
-                status: 201,
+            res.status(200).json({
+                status: 200,
                 message: 'Admin is successfully logged in',
                 data: {
-                    admin: myAdmin
+                    token: myAdmin.token
                 }
             });
         } else {
