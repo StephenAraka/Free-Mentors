@@ -11,6 +11,7 @@
     "debug": "^4.1.1",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "swagger-ui-express": "^4.0.7",
     "uuid": "^3.3.3"
   },
   "devDependencies": {
@@ -44,7 +45,8 @@
     "coverage": "nyc --reporter=lcov --reporter=text-summary npm test",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "lint": "eslint",
-    "start": "babel-node app.js"
+    "start": "babel-node app.js",
+    "dev": "DEBUG=app nodemon app.js --exec babel-node --"
   },
   "repository": {
     "type": "git",

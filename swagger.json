@@ -1,0 +1,339 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Free-Mentors",
+        "description": "Free Mentors is a social initiative where accomplished professionals become role models to young people to provide free mentorship sessions.",
+        "license": {
+            "name": "MIT",
+            "url": "https://github.com/StephenAraka/Free-Mentors"
+        }
+    },
+    "basePath": "/api/v1/",
+    "tags": [
+        {
+            "name": "Mentors",
+            "description": "Users to Mentors API"
+        },
+        {
+            "name": "Free Mentors",
+            "description": "Free Mentors API"
+        },
+        {
+            "name": "Mentors",
+            "description": "Users to Mentors API"
+        }
+    ],
+    "schemes": [
+        "https",
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/auth/signup": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "User signup",
+                "description": "Creates a new user",
+                "parameters": [
+                    {
+                        "name": "users",
+                        "in": "body",
+                        "description": "Users to be created",
+                        "schema": {
+                            "$ref": "#/definitions/signup"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "user created successfully"
+                    },
+                    "403": {
+                        "description": "Unauthorized access"
+                    }
+                }
+            }
+        },
+        "/auth/signin": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Login a user",
+                "description": "Login an existing user",
+                "parameters": [
+                    {
+                        "name": "users",
+                        "in": "body",
+                        "description": "Login an existing user",
+                        "schema": {
+                            "$ref": "#/definitions/signin"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User logged in successfully"
+                    },
+                    "403": {
+                        "description": [
+                            "Access forbidded",
+                            "Wrong email or password"
+                        ]
+                    }
+                }
+            }
+        },
+        "/auth/admin/signin": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Login an admin",
+                "description": "Login an existing Admin",
+                "parameters": [
+                    {
+                        "name": "admin",
+                        "in": "body",
+                        "description": "Login an existing admin",
+                        "schema": {
+                            "$ref": "#/definitions/admin/signin"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Admin logged in successfully"
+                    },
+                    "403": {
+                        "description": [
+                            "Access forbidden",
+                            "Wrong email or password"
+                        ]
+                    }
+                }
+            }
+        },
+        "/users": {
+            "get": {
+                "tags": [
+                    "Users",
+                    "Mentors"
+                ],
+                "summary": "Get all users",
+                "description": "Admin can view all users",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "header",
+                        "description": "Check token authentication",
+                        "required": true
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success: Obtain list of users"
+                    },
+                    "403": {
+                        "description": "Error: Invalid token. Log in as admin"
+                    }
+                }
+            }
+        },
+        "/mentors": {
+            "get": {
+                "tags": [
+                    "Mentors"
+                ],
+                "summary": "Get all mentors",
+                "description": "User can view all users",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "header",
+                        "description": "Check token authentication",
+                        "required": true
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success: Obtain list of mentors"
+                    },
+                    "403": {
+                        "description": "Error: Invalid token."
+                    }
+                }
+            }
+        },
+        "/mentors/mentorId": {
+            "get": {
+                "tags": [
+                    "Mentors"
+                ],
+                "summary": "Get a specific mentor by id",
+                "description": "User can view a specific mentor",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "header",
+                        "description": "Check token authentication",
+                        "required": true
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success: Obtain a specific mentor"
+                    },
+                    "403": {
+                        "description": "Error: Invalid token"
+                    }
+                }
+            }
+        },
+        "/users/userId": {
+            "patch": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Change a user to a mentor",
+                "description": "Admin can change a user to a mentor",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "header",
+                        "description": "Check token authentication",
+                        "required": true
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of the user to change to mentor",
+                        "required": true
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: User changed to mentor"
+                    },
+                    "403": {
+                        "description": "Error: Invalid token. Log in as admin"
+                    }
+                }
+            }
+        },
+        "/sessions": {
+            "post": {
+                "tags": [
+                    "Users",
+                    "Mentors"
+                ],
+                "summary": "Create a session",
+                "description": "User can create a session",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "header",
+                        "description": "Check token authentication",
+                        "required": true
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: Session created successfully"
+                    },
+                    "403": {
+                        "description": "Error: Invalid token"
+                    }
+                }
+            }
+        },
+        "/sessions/sessionId/accept": {
+            "patch": {
+                "tags": [
+                    "Mentors"
+                ],
+                "summary": "Accept a request",
+                "description": "Mentor can accept session request",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "header",
+                        "description": "Check token authentication",
+                        "required": true
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: Session status is accepted"
+                    },
+                    "403": {
+                        "description": "Error: Invalid token"
+                    }
+                }
+            }
+        },
+        "/sessions/sessionId/reject": {
+            "patch": {
+                "tags": [
+                    "Mentors"
+                ],
+                "summary": "Reject a request",
+                "description": "Mentor can reject session request",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "header",
+                        "description": "Check token authentication",
+                        "required": true
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success: Session status is rejected"
+                    },
+                    "403": {
+                        "description": "Error: Invalid token"
+                    }
+                }
+            }
+        }
+    }
+}

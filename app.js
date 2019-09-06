@@ -6,6 +6,7 @@ import path from 'path';
 import { userRoutes, mentorRoutes, sessionsRoutes } from './routes/user';
 import sessionsReject from './routes/sessions';
 import { signUpRoute, signInRoute, adminRoute } from './routes/auth';
+import swaggerRoute from './routes/documentation';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -69,6 +70,9 @@ app.use(`${apiRoute}/auth/admin/signin`, adminRoute);
 // Sessions
 app.use(`${apiRoute}/sessions`, sessionsRoutes);
 app.use(`${apiRoute}/sessions`, sessionsReject);
+
+// Swagger doc
+app.use(`${apiRoute}/api-docs`, swaggerRoute);
 
 app.listen(PORT, () => {
     debug(`listening on port ${chalk.blue(PORT)}`);
