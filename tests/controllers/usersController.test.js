@@ -7,8 +7,10 @@ import createToken from '../../helpers/createNewToken';
 chai.use(chaiHttp);
 chai.should();
 const mentorsPath = '/api/v1/mentors';
+const usersPath = '/api/v1/users';
+
 const userToken = createToken('henry@gmail.com');
-// const adminToken = createToken('admin@gmail.com');
+const adminToken = createToken('admin@gmail.com');
 
 describe('GET ALL MENTORS', () => {
     it('A user should be able to get all mentors', () => {
@@ -30,6 +32,21 @@ describe('GET ALL MENTORS', () => {
                 data[0].should.have.property('bio');
                 data[0].should.have.property('occupation');
                 data[0].should.have.property('expertise');
-                data[0].should.have.property('role');            });
+                data[0].should.have.property('role');
+            });
+    });
+});
+
+describe('PATCH </api/v1/users/1> Admin should change a user to mentor', () => {
+    it('It should change user to a mentor', () => {
+        chai
+            .request(app)
+            .patch(`${usersPath}/1`)
+            .set('Authorization', `Bearer ${adminToken}`)
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.have.be.a('object');
+                res.body.should.have.property('message').eql('User account changed to mentor');
+            });
     });
 });
