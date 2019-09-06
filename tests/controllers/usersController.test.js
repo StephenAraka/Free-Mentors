@@ -37,7 +37,6 @@ describe('GET ALL MENTORS', () => {
     });
 });
 
-<<<<<<< HEAD
 describe('PATCH </api/v1/users/1> Admin should change a user to mentor', () => {
     it('It should check if user is available (check for ID)', () => {
         chai
@@ -60,7 +59,10 @@ describe('PATCH </api/v1/users/1> Admin should change a user to mentor', () => {
                 res.should.have.status(200);
                 res.body.should.have.be.a('object');
                 res.body.should.have.property('message').eql('User account changed to mentor');
-=======
+            });
+    });
+});
+
 describe('GET specific mentor', () => {
     it('It should return the details of a specific mentor', () => {
         chai
@@ -81,7 +83,6 @@ describe('GET specific mentor', () => {
                 data.should.have.property('occupation');
                 data.should.have.property('expertise');
                 data.should.have.property('role');
->>>>>>> develop
             });
     });
 });
