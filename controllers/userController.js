@@ -31,7 +31,7 @@ class UsersController {
         }
 
         const {
-            id,
+            mentorId,
             firstName,
             lastName,
             email,
@@ -45,7 +45,7 @@ class UsersController {
         return res.status(200).json({
             status: 200,
             data: {
-                id,
+                mentorId,
                 firstName,
                 lastName,
                 email,
