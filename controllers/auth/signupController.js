@@ -44,11 +44,35 @@ export default class SignUpController {
         if (!newUser.firstName || !newUser.lastName || !newUser.email) {
             res.json({ status: 400, message: 'Please include names and email' });
         } else {
-            newUser.token = createToken(newUser.email);
+            const {
+                id,
+                firstName,
+                lastName,
+                email,
+                address,
+                bio,
+                occupation,
+                expertise,
+                role
+            } = newUser;
+
+            newUser.token = createToken(email);
             res.status(201).json({
+                status: 201,
+                token: newUser.token,
                 message: 'User created successfully',
                 data: {
-                    newUser
+                    user: {
+                        id,
+                        firstName,
+                        lastName,
+                        email,
+                        address,
+                        bio,
+                        occupation,
+                        expertise,
+                        role
+                    }
                 }
             });
             users.push(newUser);
