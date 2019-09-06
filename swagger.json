@@ -151,387 +151,187 @@
                     "application/json"
                 ],
                 "responses": {
-                    201: {
-                        "description": "success: Trip created Successfully"
+                    "200": {
+                        "description": "success: Obtain list of users"
                     },
-                    400: {
-                        "description": "Error: Bad request"
-                    },
-                    401: {
-                        "description": "Error: you are not admin"
+                    "403": {
+                        "description": "Error: Invalid token. Log in as admin"
                     }
                 }
-            },
-    get: {
-    tags: [
-                    "Trip"
+            }
+        },
+        "/mentors": {
+            "get": {
+                "tags": [
+                    "Mentors"
                 ],
-    summary: "view all trip created or filter trip",
-    description: "you can view all trip created by admin in the system some are active and cancelled. also you can filter trip based on origin or destination or both",
-    parameters: [
+                "summary": "Get all mentors",
+                "description": "User can view all users",
+                "parameters": [
                     {
-    name: "token",
-    in: "header",
-    description: "Check token authentication",
-    required: true
-                    },
-                    {
-    name: "origin",
-    in: "query",
-    description: "filter origin",
-    required: false,
-    type: "string"
-                    },
-                    {
-    name: "destination",
-    in: "query",
-    description: "filter destination",
-    required: false,
-    type: "string"
+                        "name": "token",
+                        "in": "header",
+                        "description": "Check token authentication",
+                        "required": true
                     }
                 ],
-    produces: [
+                "produces": [
                     "application/json"
                 ],
-    responses: {
-                    200: {
-    description: "Success: retrieved a trips"
+                "responses": {
+                    "200": {
+                        "description": "success: Obtain list of mentors"
                     },
-                    404: {
-    description: "Error: not trip found"
+                    "403": {
+                        "description": "Error: Invalid token."
                     }
                 }
             }
         },
-    /trips/{trip_id
-        }: {
-    get: {
-    tags: [
-                    "Trip"
+        "/mentors/mentorId": {
+            "get": {
+                "tags": [
+                    "Mentors"
                 ],
-    summary: "View a specific trip",
-    description: "the admin can view a specific trip",
-    parameters: [
+                "summary": "Get a specific mentor by id",
+                "description": "User can view a specific mentor",
+                "parameters": [
                     {
-    name: "token",
-    in: "header",
-    description: "Check token authentication",
-    required: true
-                    },
-                    {
-    name: "trip_id",
-    in: "path",
-    description: "enter the trip id you want",
-    required: true,
-    type: "integer"
+                        "name": "token",
+                        "in": "header",
+                        "description": "Check token authentication",
+                        "required": true
                     }
                 ],
-    produces: [
+                "produces": [
                     "application/json"
                 ],
-    responses: {
-                    200: {
-    description: "success: result found"
+                "responses": {
+                    "200": {
+                        "description": "success: Obtain a specific mentor"
                     },
-                    400: {
-    description: "Error: bad request"
-                    },
-                    404: {
-    description: "Error: result not found"
+                    "403": {
+                        "description": "Error: Invalid token"
                     }
                 }
             }
         },
-    /trips/{trip_id
-        }/cancel: {
-    patch: {
-    tags: [
-                    "Trip"
+        "/users/userId": {
+            "patch": {
+                "tags": [
+                    "Users"
                 ],
-    summary: "Admin cancel trip",
-    description: "Admin is only allowed to cancel trip with given ID",
-    parameters: [
+                "summary": "Change a user to a mentor",
+                "description": "Admin can change a user to a mentor",
+                "parameters": [
                     {
-    name: "token",
-    in: "header",
-    description: "The user token",
-    required: true
+                        "name": "token",
+                        "in": "header",
+                        "description": "Check token authentication",
+                        "required": true
                     },
                     {
-    name: "trip_id",
-    in: "path",
-    description: "trip id",
-    required: true,
-    type: "integer"
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of the user to change to mentor",
+                        "required": true
                     }
                 ],
-    produces: [
+                "produces": [
                     "application/json"
                 ],
-    responses: {
-                    200: {
-    description: "Success: trip cancelled successfully"
+                "responses": {
+                    "200": {
+                        "description": "Success: User changed to mentor"
                     },
-                    400: {
-    description: "Bad Error"
-                    },
-                    401: {
-    description: "Error: authentication error"
+                    "403": {
+                        "description": "Error: Invalid token. Log in as admin"
                     }
                 }
             }
         },
-    /bookings: {
-    post: {
-    tags: [
-                    "Booking"
+        "/sessions": {
+            "post": {
+                "tags": [
+                    "Users",
+                    "Mentors"
                 ],
-    summary: "Book a seat on trip",
-    description: "Users can book a seat on trip",
-    parameters: [
+                "summary": "Create a session",
+                "description": "User can create a session",
+                "parameters": [
                     {
-    name: "token",
-    in: "header",
-    description: "Check token authentication",
-    required: true
-                    },
-                    {
-    name: "Booking input",
-    in: "body",
-    description: "Provide input info",
-    schema: {
-    $ref: "#/definitions/booking"
-                        }
+                        "name": "token",
+                        "in": "header",
+                        "description": "Check token authentication",
+                        "required": true
                     }
                 ],
-    produces: [
+                "produces": [
                     "application/json"
                 ],
-    responses: {
-                    201: {
-    description: "Sucess: booking created successfully"
+                "responses": {
+                    "200": {
+                        "description": "Success: Session created successfully"
                     },
-                    400: {
-    description: "Error: Bad request"
-                    },
-                    401: {
-    description: "Error: authentication error"
+                    "403": {
+                        "description": "Error: Invalid token"
                     }
                 }
-            },
-    get: {
-    tags: [
-                    "Booking"
+            }
+        },
+        "/sessions/sessionId/accept": {
+            "patch": {
+                "tags": [
+                    "Mentors"
                 ],
-    summary: "View all booking",
-    description: "Users and admin can view all trip",
-    parameters: [
+                "summary": "Accept a request",
+                "description": "Mentor can accept session request",
+                "parameters": [
                     {
-    name: "token",
-    in: "header",
-    description: "Check token authentication",
-    required: true
+                        "name": "token",
+                        "in": "header",
+                        "description": "Check token authentication",
+                        "required": true
                     }
                 ],
-    produces: [
+                "produces": [
                     "application/json"
                 ],
-    responses: {
-                    200: {
-    description: "Success: View all bookings"
+                "responses": {
+                    "200": {
+                        "description": "Success: Session status is accepted"
                     },
-                    401: {
-    description: "Authentication error"
-                    },
-                    404: {
-    description: "Error: no booking record"
+                    "403": {
+                        "description": "Error: Invalid token"
                     }
                 }
             }
         },
-    /bookings/{booking_id
-        }: {
-    delete: {
-    tags: [
-                    "Booking"
+        "/sessions/sessionId/reject": {
+            "patch": {
+                "tags": [
+                    "Mentors"
                 ],
-    summary: "Delete a booking",
-    description: "Users can delete booking he/she made. no one can delete others booking",
-    parameters: [
+                "summary": "Reject a request",
+                "description": "Mentor can reject session request",
+                "parameters": [
                     {
-    name: "token",
-    in: "header",
-    description: "Check token authentication",
-    required: true
-                    },
-                    {
-    name: "booking_id",
-    in: "path",
-    description: "booking id",
-    required: true,
-    type: "integer"
+                        "name": "token",
+                        "in": "header",
+                        "description": "Check token authentication",
+                        "required": true
                     }
                 ],
-    produces: [
+                "produces": [
                     "application/json"
                 ],
-    responses: {
-                    200: {
-    description: "Success: Deleted successfully"
+                "responses": {
+                    "200": {
+                        "description": "Success: Session status is rejected"
                     },
-                    401: {
-    description: "Error: Authentication error"
-                    },
-                    403: {
-    description: "Error: Forbiden action"
-                    },
-                    404: {
-    description: "Error: no booking record"
+                    "403": {
+                        "description": "Error: Invalid token"
                     }
-                }
-            }
-        },
-    /bookings/{book_no
-        }: {
-    patch: {
-    tags: [
-                    "Booking"
-                ],
-    summary: "User specify seat number",
-    description: "User should provide the desired seat number and also the booking id of particular trip",
-    produces: [
-                    "application/json"
-                ],
-    parameters: [
-                    {
-    name: "token",
-    in: "header",
-    description: "Check token authentication",
-    required: true
-                    },
-                    {
-    name: "book_no",
-    in: "path",
-    description: "book no",
-    required: true,
-    type: "integer"
-                    },
-                    {
-    name: "booking seat is specified",
-    in: "body",
-    schema: {
-    $ref: "#/definitions/specifySeat"
-                        }
-                    }
-                ],
-    responses: {
-                    200: {
-    description: "Success: Seat Specificied successfully"
-                    },
-                    400: {
-    description: "Error: bad request"
-                    },
-                    401: {
-    description: "Error: Authentication error"
-                    },
-                    403: {
-    description: "Error: Forbiden action"
-                    },
-                    404: {
-    description: "Error: not book found"
-                    }
-                }
-            }
-        }
-    },
-    definitions: {
-    signup: {
-    required: [
-                "email",
-                "password",
-                "first_name",
-                "last_name"
-            ],
-    type: "object",
-    properties: {
-    email: {
-    type: "string"
-                },
-    password: {
-    type: "string"
-                },
-    first_name: {
-    type: "string"
-                },
-    last_name: {
-    type: "string"
-                }
-            }
-        },
-    signin: {
-    required: [
-                "email",
-                "password"
-            ],
-    type: "object",
-    properties: {
-    email: {
-    type: "string"
-                },
-    password: {
-    type: "string"
-                }
-            }
-        },
-    trip: {
-    required: [
-                "seating_capacity",
-                "bus_license_number",
-                "origin",
-                "destination",
-                "trip_date",
-                "fare"
-            ],
-    type: "object",
-    properties: {
-    seating_capacity: {
-    type: "integer"
-                },
-    bus_license_number: {
-    type: "string"
-                },
-    origin: {
-    type: "string"
-                },
-    destination: {
-    type: "string"
-                },
-    trip_date: {
-    type: "date-time"
-                },
-    fare: {
-    type: "integer"
-                }
-            }
-        },
-    booking: {
-    required: [
-                "trip_id"
-            ],
-    type: "object",
-    properties: {
-    trip_id: {
-    type: "integer"
-                }
-            }
-        },
-    specifySeat: {
-    required: [
-                "seat_no"
-            ],
-    properties: {
-    seat_no: {
-    type: "integer"
                 }
             }
         }
