@@ -8,6 +8,8 @@ chai.use(chaiHttp);
 chai.should();
 const sessionsPath = '/api/v1/sessions';
 const userToken = createToken('henry@gmail.com');
+const mentorToken = createToken('henry@gmail.com');
+
 // const adminToken = createToken('admin@gmail.com');
 
 
@@ -22,6 +24,21 @@ describe('POST User creates a session', () => {
                 res.should.have.status(201);
                 res.body.should.have.be.a('object');
                 res.body.should.have.property('data');
+            });
+    });
+});
+
+describe('PATCH Accept a session', () => {
+    it('should change status to accepted ', () => {
+        chai
+            .request(app)
+            .patch(`${sessionsPath}/1/accept`)
+            .set('Authorization', `Bearer ${mentorToken}`)
+            .end((err, res) => {
+                const { data } = res.body;
+                res.should.have.status(200);
+                res.body.should.have.be.a('object');
+                assert.equal(data.status, 'accepted');
             });
     });
 });

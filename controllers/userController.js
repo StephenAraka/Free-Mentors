@@ -102,12 +102,32 @@ class UsersController {
             menteeEmail: req.body.menteeEmail,
             status: 'pending'
         };
-    
+
         if (!newSession.menteeId || !newSession.menteeId || !newSession.questions) {
             res.json({ status: 400, message: 'Please include mentor and mentee ID and email' });
         } else {
             sessions.push(newSession);
             res.status(201).json({ status: 201, data: newSession });
+        }
+    }
+
+    static acceptRequest(req, res) {
+        const found = sessions.some((session) => session.sessionId === parseInt(req.params.id, 10));
+        if (found) {
+            sessions.forEach((session) => {
+                if (session.sessionId === parseInt(req.params.id, 10)) {
+                    session.status = 'accepted';
+                }
+                res.status(200).json({
+                    status: 200,
+                    data: session
+                });
+            });
+        } else {
+            res.satus(400).json({
+                status: 404,
+                message: `Not found session with the id of ${req.params.id}`
+            });
         }
     }
 }

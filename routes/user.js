@@ -18,7 +18,8 @@ mentorRoutes.get('/:id', verifyToken, checkforUser, UsersController.getSpecificM
 
 
 // sessions routes
-sessionsRoutes.post('/', UsersController.createSession);
+sessionsRoutes.post('/', verifyToken, checkforUser, UsersController.createSession);
+sessionsRoutes.patch('/:id/accept', verifyToken, checkforUser, UsersController.acceptRequest);
 // userRoutes.post('/:id', UsersController.getSingleUser);
 
 

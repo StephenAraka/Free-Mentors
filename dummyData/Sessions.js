@@ -13,7 +13,15 @@ const sessions = [
         menteeId: 2,
         questions: 'Hello, I would like to have a session... Are you available on Monday 14:00pm?',
         menteeEmail: 'ralph@email.com',
-        status: 'pending'
+        status: 'accepted'
+    },
+    {
+        sessionId: 2,
+        mentorId: 2,
+        menteeId: 2,
+        questions: 'Hello, I would like to have a session... Are you available on Monday 14:00pm?',
+        menteeEmail: 'ralph@email.com',
+        status: 'rejected'
     }
 ];
 
