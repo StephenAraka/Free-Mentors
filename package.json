@@ -44,7 +44,7 @@
     "coverage": "nyc --reporter=lcov --reporter=text-summary npm test",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "lint": "eslint",
-    "start": "babel-node ./app.js"
+    "start": "babel-node app.js"
   },
   "repository": {
     "type": "git",
