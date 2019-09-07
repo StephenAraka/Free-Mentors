@@ -125,7 +125,7 @@ class UsersController {
             });
         } else {
             res.satus(400).json({
-                status: 404,
+                status: 400,
                 message: `Not found session with the id of ${req.params.id}`
             });
         }

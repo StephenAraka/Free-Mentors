@@ -8,7 +8,7 @@ chai.use(chaiHttp);
 chai.should();
 const sessionsPath = '/api/v1/sessions';
 const userToken = createToken('henry@gmail.com');
-const mentorToken = createToken('henry@gmail.com');
+const mentorToken = createToken('mark@gmail.com');
 
 // const adminToken = createToken('admin@gmail.com');
 
