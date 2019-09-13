@@ -20,7 +20,7 @@ const verifyToken = (req, res, next) => {
     const bearerHeader = req.headers.authorization;
     const bearer = bearerHeader.split(' ');
     let bearerToken = bearer[1];
-    
+
     if (!bearerToken) {
         return res.status(403).send({
             status: 403,
@@ -29,7 +29,7 @@ const verifyToken = (req, res, next) => {
     }
     try {
         bearerToken = jwt.verify(bearerToken, Key);
-    req.token = bearerToken;
+        req.token = bearerToken;
         return next();
     } catch (err) {
         return res.status(403).send({
